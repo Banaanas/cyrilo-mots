@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "stylelint-8-point-grid",
+    "stylelint-config-recommended",
+    "stylelint-config-standard",
+    "stylelint-config-styled-components",
+    "stylelint-config-prettier",
+    "stylelint-config-rational-order"
+  ],
+  "rules": {
+    "plugin/8-point-grid": {
+      "base": 4,
+      "allowlist": ["1px", "2px", "3px"]
+    },
+    "value-keyword-case": null
+  }
+}

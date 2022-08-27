@@ -1,0 +1,41 @@
+name: Playwright Tests
+on:
+  push:
+  pull_request:
+
+env:
+  GH_ACCOUNT_USERNAME_TEST: ${{ secrets.GH_ACCOUNT_USERNAME_TEST }}
+  GH_ACCOUNT_PASSWORD_TEST: ${{ secrets.GH_ACCOUNT_PASSWORD_TEST }}
+  NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+  NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+
+jobs:
+  playwright_tests:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+      - uses: pnpm/action-setup@v2.2.2
+        name: Install PNPM
+        with:
+          version: 7
+          run_install: false
+      # https://docs.npmjs.com/cli/v8/commands/npm-ci
+      # pnpm install --frozen-lockfile is the equivalent of npm-ci
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Run Playwright tests
+        run: npx playwright test
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
