@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import React from "react";
 
-import StyledH1 from "../../StyledComponents/StyledH1";
+import appTheme from "../../../styles/appTheme";
 import LoginForm from "./LoginForm/LoginForm";
 import LoginGitHub from "./LoginGithub/LoginGitHub";
 import LoginSeparator from "./LoginSeparator";
@@ -11,8 +11,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  row-gap: clamp(24px, 20vw, 96px);
-  margin-top: clamp(18px, 20vw, 200px);
+  row-gap: clamp(24px, 20vw, 40px);
   background-size: cover;
   background-repeat: no-repeat;
   object-fit: cover;
@@ -29,10 +28,23 @@ const LoginContainer = styled.div`
   min-width: 300px;
 `;
 
+const TitleH1 = styled.h1`
+  max-width: 400px;
+  color: ${appTheme.colors.tertiary["500"]};
+  font-weight: ${appTheme.fontWeight.bold};
+  font-size: clamp(24px, 5vw, 36px);
+  font-weight: ${appTheme.fontWeight.bold};
+  font-family: ${appTheme.fontFamily.montserrat},
+    ${appTheme.fontFamily.alternativeFonts};
+  line-height: 1;
+  letter-spacing: 2px;
+  text-align: center;
+`;
+
 const LoginSection = () => {
   return (
     <Container>
-      <StyledH1>Accéder à ma liste de mots</StyledH1>
+      <TitleH1>Accéder à ma liste de mots</TitleH1>
       <LoginContainer>
         <LoginGitHub />
         <LoginSeparator />
