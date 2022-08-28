@@ -4,7 +4,7 @@
   "author": {
     "name": "Cyrilo",
     "email": "cyrilo.dev@gmail.com",
-    "url": "https://cyrilo.dev"
+    "url": "https://mots.cyrilo.dev/"
   },
   "scripts": {
     "build": "next build && pnpm run postbuild",
