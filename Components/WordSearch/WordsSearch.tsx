@@ -117,11 +117,12 @@ const WordsSearch = () => {
     setInputValue(event.currentTarget.value);
 
   const clearInputValue = async () => {
+    setInputValue("");
+    setSearchedString("");
     setWordsAccordionState("loading");
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     inputRef.current.value = "";
-    setInputValue("");
     await handleResetList();
     setWordsAccordionState("normal");
   };
@@ -145,6 +146,7 @@ const WordsSearch = () => {
           onInput={handleOnInput}
           id={inputID}
           placeholder="Chercher un mot..."
+          type="search"
         />
       </Label>
       <WordsSearchError searchError={searchError} />

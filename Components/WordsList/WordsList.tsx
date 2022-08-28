@@ -66,7 +66,7 @@ const WordsList = ({ listType }: WordsListProps) => {
         await fetchUnreadWordsList(fromRange, toRange);
 
       setWordsAccordionState("normal");
-    } catch (e) {
+    } catch (error) {
       throw new Error();
     }
   };
