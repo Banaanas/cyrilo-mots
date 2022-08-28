@@ -1,10 +1,12 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { supabaseClient } from "@supabase/auth-helpers-nextjs";
+import { useRouter } from "next/router";
 import React, { useId } from "react";
 import { Lock as PasswordIcon, Mail as MailIcon } from "react-feather";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { navLinks } from "../../../../data/navlinks";
 import { LoginFormValues } from "../../../../types/types";
 import { getErrorMessage } from "./LoginForm.helpers";
 import {
@@ -16,7 +18,6 @@ import {
 } from "./LoginForm.styles";
 import LoginFormButton from "./LoginFormButton";
 import LoginFormError from "./LoginFormError";
-import LoginFormSuccess from "./LoginFormSuccess";
 
 // Form Validation Schema - Yup
 const loginValidationSchema = z.object({
@@ -27,10 +28,12 @@ const loginValidationSchema = z.object({
 });
 
 const LoginForm = () => {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitSuccessful, isSubmitting, isValidating },
+    formState: { errors, isSubmitting, isValidating },
     setError,
   } = useForm<LoginFormValues>({
     resolver: zodResolver(loginValidationSchema),
@@ -45,7 +48,7 @@ const LoginForm = () => {
     const { email, password } = formData;
 
     try {
-      const { error } = await supabaseClient.auth.signIn({
+      const { user, error } = await supabaseClient.auth.signIn({
         email,
         password,
       });
@@ -53,6 +56,9 @@ const LoginForm = () => {
       if (error) {
         getErrorMessage(setError, error);
       }
+
+      // eslint-disable-next-line no-void
+      if (user) await router.push(navLinks.allWords.href);
     } catch (error) {
       throw new Error();
     }
@@ -91,7 +97,6 @@ const LoginForm = () => {
         </Container>
         <LoginFormButton isLoading={isSubmitting || isValidating} />
       </Form>
-      {isSubmitSuccessful && !isSubmitting ? <LoginFormSuccess /> : null}
       {errors && !isSubmitting ? (
         <LoginFormError text={errors?.email?.message} />
       ) : null}
