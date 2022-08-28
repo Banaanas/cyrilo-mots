@@ -1,4 +1,4 @@
-const appName = "Mots à moi";
+const appName = "Mots à Moi";
 
 const SEO: SEOProps = {
   home: {
