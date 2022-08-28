@@ -35,7 +35,7 @@
 
 <p align="center">
     Personal list of wonderful words.<br/><br/>
-    <a href="https://cyrilo.dev/">:computer: Live Demo :eyes:</a><br/><br/>
+    <a href="https://mots.cyrilo.dev/">:computer: Live Demo :eyes:</a><br/><br/>
 </p>
 
 <!-- TABLE OF CONTENTS -->
