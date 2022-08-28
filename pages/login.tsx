@@ -1,5 +1,5 @@
 import { getUser, withPageAuth } from "@supabase/auth-helpers-nextjs";
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import React from "react";
 
@@ -25,7 +25,8 @@ export default LoginPage;
 
 export const getServerSideProps: GetServerSideProps = withPageAuth({
   authRequired: false,
-  async getServerSideProps(context) {
+  async getServerSideProps(context: GetServerSidePropsContext) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { user } = await getUser(context);
 
     if (user) {
