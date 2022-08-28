@@ -11,7 +11,11 @@ const ButtonText = styled.span`
 
 const LoginFormButton = ({ isLoading }: LoginButtonProps) => {
   return (
-    <LoginButton type="submit" disabled={isLoading}>
+    <LoginButton
+      type="submit"
+      disabled={isLoading}
+      data-test="login-form-button"
+    >
       <span role="img" aria-hidden="true">
         ✨
       </span>
@@ -23,7 +27,7 @@ const LoginFormButton = ({ isLoading }: LoginButtonProps) => {
           color={appTheme.colors.secondary["400"]}
         />
       ) : (
-        <ButtonText>Magic Link</ButtonText>
+        <ButtonText>Me connecter</ButtonText>
       )}
 
       <span role="img" aria-hidden="true">

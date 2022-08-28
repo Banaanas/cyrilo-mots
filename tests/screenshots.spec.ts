@@ -6,7 +6,6 @@ import { expect, test } from "@playwright/test";
 test("LoginPage Screenshots are identical", async ({ page }) => {
   await page.goto("/login");
 
-  // Wait for the animation to end
   await page.waitForTimeout(5000);
 
   await expect(page).toHaveScreenshot({

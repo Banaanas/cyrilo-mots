@@ -30,6 +30,10 @@ export const Container = styled.div`
 `;
 
 export const Label = styled(LabelPrimitive.Root)`
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  column-gap: 8px;
   user-select: none;
 `;
 
@@ -45,5 +49,6 @@ export const Input = styled.input`
 
   :focus-visible {
     outline-color: ${appTheme.colors.tertiary["500"]};
+    outline-offset: 2px;
   }
 `;
