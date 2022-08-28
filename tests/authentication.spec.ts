@@ -1,29 +1,23 @@
 import { expect, test } from "@playwright/test";
 
-const gitHubAccountUsernameTest = process.env
-  .GH_ACCOUNT_USERNAME_TEST as string;
-
-const gitHubAccountPasswordTest = process.env
-  .GH_ACCOUNT_PASSWORD_TEST as string;
-
-const gitHubLoginURL = "https://github.com/login";
+const accountMailTest = process.env.ACCOUNT_MAIL_TEST as string;
+const accountPasswordTest = process.env.ACCOUNT_PASSWORD_TEST as string;
 
 test("Login and Logout process", async ({ page }) => {
-  // Log In to GitHub Account
-  await page.goto(gitHubLoginURL);
-  await page.locator("input[name='login']").fill(gitHubAccountUsernameTest);
-  await page.locator("input[name='password']").fill(gitHubAccountPasswordTest);
-  await page.locator("input:has-text('Sign in')").click();
-
-  // Redirect to GitHub.com after login
-  await expect(page).toHaveURL("https://github.com/");
-
-  // Go to localhost
+  // Go to the HomePage
   await page.goto("/");
-  await page.locator("data-test=github-login-button").click();
 
-  // Wait for GitHub Redirection to localhost
-  await page.waitForURL("/");
+  // Redirect to LoginPage
+  await expect(page).toHaveURL("/login");
+
+  await page.locator("data-test=login-mail-input").fill(accountMailTest);
+  await page
+    .locator("data-test=login-password-input")
+    .fill(accountPasswordTest);
+  await page.locator("data-test=login-form-button").click();
+
+  // Redirect to HomePage after login
+  await expect(page).toHaveURL("/");
 
   // Expect HomePage to have H1 and logout Button
   const titleH1 = page.locator("h1");

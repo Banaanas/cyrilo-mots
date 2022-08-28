@@ -1,9 +1,12 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { supabaseClient } from "@supabase/auth-helpers-nextjs";
 import React, { useId } from "react";
+import { Lock as PasswordIcon, Mail as MailIcon } from "react-feather";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { LoginFormValues } from "../../../../types/types";
+import { getErrorMessage } from "./LoginForm.helpers";
 import {
   Container,
   Form,
@@ -20,11 +23,8 @@ const loginValidationSchema = z.object({
   email: z
     .string()
     .email({ message: "Veuillez renseigner une adresse mail valide." }),
+  password: z.string(),
 });
-
-const noNewSignupMessage = "Les inscriptions ne sont pas acceptées en l'état.";
-const tooMuchRequests =
-  "Veuillez attendre 60 secondes avant de soumettre le formulaire de nouveau";
 
 const LoginForm = () => {
   const {
@@ -32,31 +32,26 @@ const LoginForm = () => {
     handleSubmit,
     formState: { errors, isSubmitSuccessful, isSubmitting, isValidating },
     setError,
-  } = useForm<FormValues>({
+  } = useForm<LoginFormValues>({
     resolver: zodResolver(loginValidationSchema),
     mode: "onSubmit",
   });
 
-  // Set unique ID to Input
-  const inputID = useId();
+  // Set unique ID to Inputs
+  const mailInputID = useId();
+  const passwordInputID = useId();
 
-  const handleFormSubmit = async (formData: FormValues) => {
-    const { email } = formData;
+  const handleFormSubmit = async (formData: LoginFormValues) => {
+    const { email, password } = formData;
 
     try {
-      const { error } = await supabaseClient.auth.signIn({ email });
+      const { error } = await supabaseClient.auth.signIn({
+        email,
+        password,
+      });
+
       if (error) {
-        if (error.status === 403) {
-          setError("email", { type: "custom", message: noNewSignupMessage });
-        }
-        if (error.status === 429) {
-          setError("email", { type: "custom", message: tooMuchRequests });
-        } else {
-          setError("email", {
-            type: "custom",
-            message: error.message,
-          });
-        }
+        getErrorMessage(setError, error);
       }
     } catch (error) {
       throw new Error();
@@ -68,12 +63,30 @@ const LoginForm = () => {
       {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
       <Form onSubmit={handleSubmit(handleFormSubmit)}>
         <Container>
-          <Label htmlFor={inputID}>Renseignez votre e-mail :</Label>
+          <Label htmlFor={mailInputID}>
+            <PasswordIcon size="20px" />
+            <span>E-mail :</span>
+          </Label>
           <Input
-            id={inputID}
+            id={mailInputID}
             autoComplete="off"
             placeholder="adressse@mail.fr"
+            data-test="login-mail-input"
             {...register("email", { required: true })}
+          />
+        </Container>
+        <Container>
+          <Label htmlFor={passwordInputID}>
+            <MailIcon size="20px" />
+            <span>Mot de passe :</span>
+          </Label>
+          <Input
+            id={passwordInputID}
+            type="password"
+            autoComplete="off"
+            placeholder="***************"
+            data-test="login-password-input"
+            {...register("password", { required: true })}
           />
         </Container>
         <LoginFormButton isLoading={isSubmitting || isValidating} />
@@ -87,7 +100,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-
-interface FormValues {
-  email: string;
-}

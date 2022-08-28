@@ -20,7 +20,6 @@ const LoginGitHub = () => {
       type="button"
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onClick={signIgnWithGitHub}
-      data-test="github-login-button"
     >
       <GitHubIcon aria-hidden="true" />
       Me connecter avec GitHub

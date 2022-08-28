@@ -73,7 +73,7 @@ My Developer Portfolio.
 - Search words function ;
 - Automatic pagination ;
 - Use of Wiktionary API to retrieve word definitions ;
-- Magic Link / GitHub Authentication with Supabase ;
+- Mail-Password / GitHub Authentication with Supabase ;
 - Accessibility ;
 - Responsive and Creative Design.
 

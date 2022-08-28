@@ -58,6 +58,7 @@ export const SubHeaderLink = styled.a<{ lightColor?: boolean }>`
   font-size: ${appTheme.fontSize.sm};
   font-weight: ${appTheme.fontWeight.bold};
   text-decoration: none;
+  border: none;
   border-radius: 4px;
   overflow: hidden;
   cursor: pointer;

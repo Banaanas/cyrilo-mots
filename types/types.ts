@@ -12,3 +12,8 @@ export interface WordWithDef extends Word {
 
 // Response from Supabase (Array of Words)
 export type WordsWithDefList = Array<WordWithDef>;
+
+export interface LoginFormValues {
+  email: string;
+  password: string;
+}
