@@ -20,6 +20,14 @@ const Container = styled.div`
   padding: 48px;
 `;
 
+const TitleAndMessageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 8px;
+`;
+
 const LoginContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -45,8 +53,10 @@ const TitleH1 = styled.h1`
 const LoginSection = () => {
   return (
     <Container>
-      <TitleH1>Accéder à ma liste de mots</TitleH1>
-      <NoNewSignUpMessage />
+      <TitleAndMessageContainer>
+        <TitleH1>Accéder à ma liste de mots</TitleH1>
+        <NoNewSignUpMessage />
+      </TitleAndMessageContainer>
       <LoginContainer>
         <LoginGitHub />
         <LoginSeparator />
