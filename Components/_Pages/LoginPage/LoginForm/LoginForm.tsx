@@ -58,7 +58,7 @@ const LoginForm = () => {
       }
 
       // eslint-disable-next-line no-void
-      if (user) await router.push(navLinks.allWords.href);
+      if (user) await router.push(navLinks.home.href);
     } catch (error) {
       throw new Error();
     }
