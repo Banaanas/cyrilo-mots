@@ -51,4 +51,8 @@ export const Input = styled.input`
     outline-color: ${appTheme.colors.tertiary["500"]};
     outline-offset: 2px;
   }
+
+  ::placeholder {
+    padding-left: 16px;
+  }
 `;

@@ -5,6 +5,7 @@ import appTheme from "../../../styles/appTheme";
 import LoginForm from "./LoginForm/LoginForm";
 import LoginGitHub from "./LoginGithub/LoginGitHub";
 import LoginSeparator from "./LoginSeparator";
+import NoNewSignUpMessage from "./NoNewSignUpMessage";
 
 const Container = styled.div`
   display: flex;
@@ -45,6 +46,7 @@ const LoginSection = () => {
   return (
     <Container>
       <TitleH1>Accéder à ma liste de mots</TitleH1>
+      <NoNewSignUpMessage />
       <LoginContainer>
         <LoginGitHub />
         <LoginSeparator />
