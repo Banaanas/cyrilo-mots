@@ -111,7 +111,7 @@ My Developer Portfolio.
 1 - Clone the Project's repository
 
 ```sh
-git clone https://github.com/Banaanas/cyrilo-portfolio.git
+git clone https://github.com/Banaanas/cyrilo-mots
 ```
 
 2 - Install NPM Packages / Dependencies
