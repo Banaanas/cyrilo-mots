@@ -23,7 +23,7 @@ const NoNewSignUpMessage = () => {
     <Container>
       {/* eslint-disable-next-line react/no-unescaped-entities */}
       <Paragraph>Les inscriptions sont closes jusqu'à nouvel ordre.</Paragraph>
-      <Paragraph>Registration are closed for now.</Paragraph>
+      <Paragraph>Registrations are closed for now.</Paragraph>
     </Container>
   );
 };
