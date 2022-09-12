@@ -14,6 +14,7 @@
     "lint-total": "npx eslint ./",
     "lint-fix": "npx eslint --fix ./",
     "postbuild": "next-sitemap",
+    "preinstall": "npx only-allow pnpm",
     "prettier-check": "prettier --check ./",
     "prettier-write": "prettier --write ./",
     "start": "next start",
