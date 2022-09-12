@@ -20,8 +20,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16.x"
-      - uses: pnpm/action-setup@v2.2.2
-        name: Install PNPM
+      - name: Install PNPM
+        uses: pnpm/action-setup@v2.2.2
         with:
           version: 7
           run_install: false
