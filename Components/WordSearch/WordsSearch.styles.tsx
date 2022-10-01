@@ -39,7 +39,7 @@ export const StyledCrossIcon = styled(CrossIcon)<{ hidden: boolean }>`
 export const Input = styled.input`
   align-items: center;
   justify-content: center;
-  outline: none;
+  outline: none !important;
   border: none;
   background: transparent;
 `;

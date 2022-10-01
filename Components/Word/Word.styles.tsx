@@ -3,7 +3,6 @@ import * as Accordion from "@radix-ui/react-accordion";
 import { ChevronDown as ChevronIcon } from "react-feather";
 
 import appTheme from "../../styles/appTheme";
-import { focusStyle } from "../../styles/css-composition";
 
 export const AccordionItem = styled(Accordion.Item)`
   width: 95vw;
@@ -26,8 +25,6 @@ export const AccordionTrigger = styled(Accordion.Trigger)`
   cursor: pointer;
   border: none;
   isolation: isolate;
-
-  ${focusStyle};
 
   ::after {
     position: absolute;

@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import * as SeparatorPrimitive from "@radix-ui/react-separator";
 
 import appTheme from "../../../styles/appTheme";
-import { focusStyle } from "../../../styles/css-composition";
 
 export const StyledHeader = styled.header`
   display: flex;
@@ -63,8 +62,6 @@ export const SubHeaderLink = styled.a<{ lightColor?: boolean }>`
   overflow: hidden;
   cursor: pointer;
   isolation: isolate;
-
-  ${focusStyle};
 
   ::after {
     position: absolute;

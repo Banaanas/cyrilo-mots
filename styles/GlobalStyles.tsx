@@ -1,6 +1,7 @@
 import { css, Global } from "@emotion/react";
 
 import appTheme from "./appTheme";
+import { focusStyle } from "./css-composition";
 import colors from "./CSS-variables/colors";
 import elevations from "./CSS-variables/elevations";
 import fontProperties from "./CSS-variables/font-properties";
@@ -109,10 +110,6 @@ const GlobalStyles = () => (
         font-weight: ${appTheme.fontWeight.bold};
       }
 
-      a:focus {
-        outline: 5px auto ${appTheme.colors.tertiary["500"]};
-      }
-
       img,
       picture {
         display: block;
@@ -124,6 +121,15 @@ const GlobalStyles = () => (
       textarea,
       select {
         font: inherit;
+      }
+
+      /* Interactive Elements - A11Y */
+      a,
+      button,
+      input,
+      select,
+      textarea {
+        ${focusStyle}
       }
 
       /* Selection */

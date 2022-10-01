@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import * as LabelPrimitive from "@radix-ui/react-label";
 
 import appTheme from "../../../../styles/appTheme";
-import { focusStyle } from "../../../../styles/css-composition";
 
 export const FormContainer = styled.div`
   display: flex;
@@ -44,8 +43,6 @@ export const Input = styled.input`
   padding: 4px 8px;
   border-radius: 4px;
   width: 100%;
-
-  ${focusStyle};
 
   :focus-visible {
     outline-color: ${appTheme.colors.tertiary["500"]};

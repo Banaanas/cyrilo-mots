@@ -4,7 +4,6 @@ import { Home as HomeIcon } from "react-feather";
 
 import { navLinks } from "../../../data/navlinks";
 import appTheme from "../../../styles/appTheme";
-import { focusStyle } from "../../../styles/css-composition";
 import StyledErrorPagesContainer from "../../StyledComponents/StyledErrorPagesContainer";
 import StyledH1 from "../../StyledComponents/StyledH1";
 import StyledPageMain from "../../StyledComponents/StyledPageMain";
@@ -23,8 +22,6 @@ const Link = styled.a`
   cursor: pointer;
   overflow: hidden;
   isolation: isolate;
-
-  ${focusStyle};
 
   ::after {
     position: absolute;
