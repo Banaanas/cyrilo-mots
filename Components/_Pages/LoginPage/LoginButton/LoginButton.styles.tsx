@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 
 import appTheme from "../../../../styles/appTheme";
-import { focusStyle } from "../../../../styles/css-composition";
 
 export const LoginButton = styled.button`
   all: unset;
@@ -18,8 +17,6 @@ export const LoginButton = styled.button`
     ${appTheme.fontFamily.alternativeFonts};
   cursor: pointer;
   isolation: isolate;
-
-  ${focusStyle};
 
   ::after {
     position: absolute;

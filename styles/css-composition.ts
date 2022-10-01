@@ -12,6 +12,7 @@ export const focusStyle = css`
     outline-offset: 4px;
   }
 `;
+
 export const focusWithinStyle = css`
   :focus {
     outline: none;

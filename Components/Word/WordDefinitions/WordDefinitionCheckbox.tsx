@@ -8,7 +8,6 @@ import { Check as CheckIcon } from "react-feather";
 import { toggleWord } from "../../../lib/api-calls/supabase/word";
 import { useStoreWords } from "../../../lib/zustand-store/usestore-words";
 import appTheme from "../../../styles/appTheme";
-import { focusStyle } from "../../../styles/css-composition";
 import Loader from "../../Common/Loader";
 
 const Container = styled.div`
@@ -34,8 +33,6 @@ const StyledCheckbox = styled(Checkbox.Root)`
   :hover {
     background-color: ${appTheme.colors.primary["200"]};
   }
-
-  ${focusStyle}
 `;
 const StyledCheckboxIndicator = styled(Checkbox.Indicator)`
   width: 100%;

@@ -7,7 +7,6 @@ import ReactPaginate from "react-paginate";
 
 import { useStoreWordsAccordionLoading } from "../../lib/zustand-store/usestore-words-accordion";
 import appTheme from "../../styles/appTheme";
-import { focusStyle } from "../../styles/css-composition";
 
 const ReactPaginateComponent = styled(ReactPaginate)`
   all: unset; // Remove Browser list style
@@ -46,8 +45,6 @@ const ReactPaginateComponent = styled(ReactPaginate)`
       border-radius: 2px;
       cursor: pointer;
       isolation: isolate;
-
-      ${focusStyle};
 
       ::after {
         position: absolute;

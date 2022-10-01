@@ -1,7 +1,7 @@
 import type { PlaywrightTestConfig } from "@playwright/test";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { devices } from "@playwright/test";
-import {} from "dotenv/config"; // Used for Playwright environment variables are located in .env file (not Next.js env.local file).
+import {} from "dotenv/config"; // Used for Playwright - Environment variables are located in .env file (not Next.js env.local file)
 
 /**
  * See https://playwright.dev/docs/test-configuration.
