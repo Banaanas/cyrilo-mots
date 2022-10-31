@@ -30,7 +30,7 @@
     "@radix-ui/react-checkbox": "^1.0.1",
     "@radix-ui/react-label": "^2.0.0",
     "@radix-ui/react-separator": "^1.0.1",
-    "@supabase/auth-helpers-react": "^0.2.4",
+    "@supabase/auth-helpers-react": "^0.3.0",
     "@supabase/auth-helpers-nextjs": "^0.2.9",
     "@supabase/auth-helpers-shared": "^0.1.4",
     "@supabase/supabase-js": "^1.35.7",
