@@ -20,10 +20,10 @@ const Header = () => {
   return (
     <StyledHeader>
       <SubHeader>
-        <NextLink href={subheaderLink.href} passHref>
+        <NextLink href={subheaderLink.href} passHref legacyBehavior>
           <SubHeaderLink lightColor>{subheaderLink.name}</SubHeaderLink>
         </NextLink>
-        <NextLink href={navLinks.logout.href} passHref>
+        <NextLink href={navLinks.logout.href} passHref legacyBehavior>
           <SubHeaderLink as="button" data-test="logout-button">
             Déconnexion
           </SubHeaderLink>

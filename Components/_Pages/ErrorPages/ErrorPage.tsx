@@ -45,7 +45,7 @@ const ErrorPage = ({ errorCode }: ErrorPageProps) => {
     <StyledPageMain>
       <StyledErrorPagesContainer>
         <StyledH1>Error {errorCode}</StyledH1>
-        <NextLink href={navLinks.home.href}>
+        <NextLink href={navLinks.home.href} legacyBehavior>
           <Link>
             <span>Accueil</span>
             <HomeIcon size="16px" />
