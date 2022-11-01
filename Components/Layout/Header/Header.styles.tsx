@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import * as SeparatorPrimitive from "@radix-ui/react-separator";
+import NextLink from "next/link";
 
 import appTheme from "../../../styles/appTheme";
 
@@ -43,7 +44,7 @@ export const Heading = styled.h1`
   }
 `;
 
-export const SubHeaderLink = styled.a<{ lightColor?: boolean }>`
+export const SubHeaderLink = styled(NextLink)<{ lightColor?: boolean }>`
   position: relative;
   padding: 8px;
   color: ${({ lightColor }) =>

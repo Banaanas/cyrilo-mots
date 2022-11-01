@@ -8,7 +8,7 @@ import StyledErrorPagesContainer from "../../StyledComponents/StyledErrorPagesCo
 import StyledH1 from "../../StyledComponents/StyledH1";
 import StyledPageMain from "../../StyledComponents/StyledPageMain";
 
-const Link = styled.a`
+const StyledNextLink = styled(NextLink)`
   position: relative;
   display: flex;
   align-items: center;
@@ -18,6 +18,7 @@ const Link = styled.a`
   background-color: ${appTheme.colors.tertiary["500"]};
   padding: 4px 8px;
   font-weight: ${appTheme.fontWeight.bold};
+  text-decoration: none;
   border-radius: 4px;
   cursor: pointer;
   overflow: hidden;
@@ -45,12 +46,10 @@ const ErrorPage = ({ errorCode }: ErrorPageProps) => {
     <StyledPageMain>
       <StyledErrorPagesContainer>
         <StyledH1>Error {errorCode}</StyledH1>
-        <NextLink href={navLinks.home.href}>
-          <Link>
-            <span>Accueil</span>
-            <HomeIcon size="16px" />
-          </Link>
-        </NextLink>
+        <StyledNextLink href={navLinks.home.href}>
+          <span>Accueil</span>
+          <HomeIcon size="16px" />
+        </StyledNextLink>
       </StyledErrorPagesContainer>
     </StyledPageMain>
   );

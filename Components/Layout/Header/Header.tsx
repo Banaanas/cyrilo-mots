@@ -1,4 +1,3 @@
-import NextLink from "next/link";
 import { useRouter } from "next/router";
 
 import { navLinks } from "../../../data/navlinks";
@@ -20,14 +19,12 @@ const Header = () => {
   return (
     <StyledHeader>
       <SubHeader>
-        <NextLink href={subheaderLink.href} passHref>
-          <SubHeaderLink lightColor>{subheaderLink.name}</SubHeaderLink>
-        </NextLink>
-        <NextLink href={navLinks.logout.href} passHref>
-          <SubHeaderLink as="button" data-test="logout-button">
-            Déconnexion
-          </SubHeaderLink>
-        </NextLink>
+        <SubHeaderLink href={subheaderLink.href} lightColor>
+          {subheaderLink.name}
+        </SubHeaderLink>
+        <SubHeaderLink href={navLinks.logout.href} data-test="logout-button">
+          Déconnexion
+        </SubHeaderLink>
       </SubHeader>
       <Separator />
       <Heading>{headerLink.name}</Heading>
