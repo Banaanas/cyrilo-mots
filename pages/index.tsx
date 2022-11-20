@@ -30,7 +30,7 @@ export default HomePage;
 export const getServerSideProps: GetServerSideProps = withPageAuth({
   redirectTo: "/login",
   async getServerSideProps() {
-    // Get max range in getServerSideProps to avoid flash content from WordsSeachListPagination, which needs a maxRange prop
+    // Get max range in getServerSideProps to avoid flash content from WordsSearchListPagination, which needs a maxRange prop
     const { count: maxRange } = await getUnreadWordsCount();
 
     return { props: { maxRange } };
