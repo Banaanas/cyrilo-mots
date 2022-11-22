@@ -1,3 +1,4 @@
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/router";
 
 import { navLinks } from "../../../data/navlinks";
@@ -7,14 +8,22 @@ import {
   Separator,
   StyledHeader,
   SubHeader,
+  SubHeaderButton,
   SubHeaderLink,
 } from "./Header.styles";
 
 const Header = () => {
-  const { pathname } = useRouter();
+  const supabaseClient = useSupabaseClient();
+  const { pathname, push } = useRouter();
 
   // Header Links location are different in function of the Page
   const { headerLink, subheaderLink } = getHeaderLinks(pathname);
+
+  const handleLogOut = async () => {
+    await supabaseClient.auth.signOut();
+    // eslint-disable-next-line no-void
+    void push(navLinks.login.href);
+  };
 
   return (
     <StyledHeader>
@@ -22,9 +31,13 @@ const Header = () => {
         <SubHeaderLink href={subheaderLink.href} lightColor>
           {subheaderLink.name}
         </SubHeaderLink>
-        <SubHeaderLink href={navLinks.logout.href} data-test="logout-button">
+        <SubHeaderButton
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
+          onClick={handleLogOut}
+          data-test="logout-button"
+        >
           Déconnexion
-        </SubHeaderLink>
+        </SubHeaderButton>
       </SubHeader>
       <Separator />
       <Heading>{headerLink.name}</Heading>

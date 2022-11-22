@@ -23,3 +23,50 @@ export const focusWithinStyle = css`
     outline-offset: 4px;
   }
 `;
+
+// Function built upon Emotion CSS Prop - Use of lightColor prop was needed (doable only with a function)
+export const headerLinkButtonStyle = ({
+  lightColor,
+}: {
+  lightColor?: boolean;
+}) => css`
+  position: relative;
+  padding: 8px;
+  color: ${lightColor ? appTheme.colors.black : appTheme.colors.white};
+
+  background: ${lightColor
+    ? appTheme.colors.tertiary["100"]
+    : appTheme.colors.tertiary["800"]};
+  font-family: ${appTheme.fontFamily.montserrat},
+    ${appTheme.fontFamily.alternativeFonts};
+  font-size: ${appTheme.fontSize.sm};
+  font-weight: ${appTheme.fontWeight.bold};
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  isolation: isolate;
+
+  ::after {
+    position: absolute;
+    z-index: -1;
+    inset: 0 0;
+    width: 100%;
+    height: 100%;
+    background-color: ${lightColor
+      ? appTheme.colors.tertiary["200"]
+      : appTheme.colors.tertiary["300"]};
+    opacity: 0;
+    transition: opacity 250ms ease-out;
+    content: "";
+  }
+
+  :hover {
+    font-weight: ${appTheme.fontWeight.bold};
+  }
+
+  :hover::after {
+    opacity: 1;
+  }
+`;

@@ -3,6 +3,7 @@ import * as SeparatorPrimitive from "@radix-ui/react-separator";
 import NextLink from "next/link";
 
 import appTheme from "../../../styles/appTheme";
+import { headerLinkButtonStyle } from "../../../styles/css-composition";
 
 export const StyledHeader = styled.header`
   display: flex;
@@ -45,47 +46,10 @@ export const Heading = styled.h1`
 `;
 
 export const SubHeaderLink = styled(NextLink)<{ lightColor?: boolean }>`
-  position: relative;
-  padding: 8px;
-  color: ${({ lightColor }) =>
-    lightColor ? appTheme.colors.black : appTheme.colors.white};
-  background: ${({ lightColor }) =>
-    lightColor
-      ? appTheme.colors.tertiary["100"]
-      : appTheme.colors.tertiary["800"]};
-  font-family: ${appTheme.fontFamily.montserrat},
-    ${appTheme.fontFamily.alternativeFonts};
-  font-size: ${appTheme.fontSize.sm};
-  font-weight: ${appTheme.fontWeight.bold};
-  text-decoration: none;
-  border: none;
-  border-radius: 4px;
-  overflow: hidden;
-  cursor: pointer;
-  isolation: isolate;
-
-  ::after {
-    position: absolute;
-    z-index: -1;
-    inset: 0 0;
-    width: 100%;
-    height: 100%;
-    background-color: ${({ lightColor }) =>
-      lightColor
-        ? appTheme.colors.tertiary["200"]
-        : appTheme.colors.tertiary["300"]};
-    opacity: 0;
-    transition: opacity 250ms ease-out;
-    content: "";
-  }
-
-  :hover {
-    font-weight: ${appTheme.fontWeight.bold};
-  }
-
-  :hover::after {
-    opacity: 1;
-  }
+  ${headerLinkButtonStyle}
+`;
+export const SubHeaderButton = styled.button<{ lightColor?: boolean }>`
+  ${headerLinkButtonStyle}
 `;
 
 export const Separator = styled(SeparatorPrimitive.Root)`
