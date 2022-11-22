@@ -1,13 +1,15 @@
-import { supabaseClient } from "@supabase/auth-helpers-nextjs";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import React from "react";
 import { GitHub as GitHubIcon } from "react-feather";
 
 import { LoginButton } from "../LoginButton/LoginButton.styles";
 
 const LoginGitHub = () => {
+  const supabaseClient = useSupabaseClient();
+
   const signIgnWithGitHub = async () => {
     try {
-      await supabaseClient.auth.signIn({
+      await supabaseClient.auth.signInWithOAuth({
         provider: "github",
       });
     } catch (error) {

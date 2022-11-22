@@ -1,5 +1,5 @@
-import { getUser, withPageAuth } from "@supabase/auth-helpers-nextjs";
-import { GetServerSideProps, GetServerSidePropsContext } from "next";
+import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
+import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import React from "react";
 
@@ -23,23 +23,25 @@ const LoginPage = () => {
 
 export default LoginPage;
 
-export const getServerSideProps: GetServerSideProps = withPageAuth({
-  authRequired: false,
-  async getServerSideProps(context: GetServerSidePropsContext) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const { user } = await getUser(context);
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext,
+) => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const supabase = createServerSupabaseClient(context);
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
 
-    if (user) {
-      return {
-        redirect: {
-          destination: navLinks.home.href,
-          permanent: false,
-        },
-      };
-    }
-
+  if (session) {
     return {
-      props: {},
+      redirect: {
+        destination: navLinks.home.href,
+        permanent: false,
+      },
     };
-  },
-});
+  }
+
+  return {
+    props: {},
+  };
+};

@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { supabaseClient } from "@supabase/auth-helpers-nextjs";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/router";
 import React, { useId } from "react";
 import { Lock as PasswordIcon, Mail as MailIcon } from "react-feather";
@@ -28,6 +28,7 @@ const loginValidationSchema = z.object({
 });
 
 const LoginForm = () => {
+  const supabaseClient = useSupabaseClient();
   const router = useRouter();
 
   const {
@@ -48,7 +49,10 @@ const LoginForm = () => {
     const { email, password } = formData;
 
     try {
-      const { user, error } = await supabaseClient.auth.signIn({
+      const {
+        data: { user },
+        error,
+      } = await supabaseClient.auth.signInWithPassword({
         email,
         password,
       });
