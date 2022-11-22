@@ -45,10 +45,11 @@ export const Heading = styled.h1`
   }
 `;
 
-export const SubHeaderLink = styled(NextLink)<{ lightColor?: boolean }>`
+export const SubHeaderLink = styled(NextLink)<{ color?: "light" | "dark" }>`
   ${headerLinkButtonStyle}
 `;
-export const SubHeaderButton = styled.button<{ lightColor?: boolean }>`
+
+export const SubHeaderButton = styled.button<{ color?: "light" | "dark" }>`
   ${headerLinkButtonStyle}
 `;
 

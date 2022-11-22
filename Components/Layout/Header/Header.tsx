@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <SubHeader>
-        <SubHeaderLink href={subheaderLink.href} lightColor>
+        <SubHeaderLink href={subheaderLink.href} color="light">
           {subheaderLink.name}
         </SubHeaderLink>
         <SubHeaderButton
