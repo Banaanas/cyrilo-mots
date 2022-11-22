@@ -1,7 +1,6 @@
-import { supabaseClient } from "@supabase/auth-helpers-nextjs";
-
 import { Word } from "../../../types/types";
 import { getWordsWithDefinitions } from "../wiktionary/words-with-definition";
+import { supabaseClient } from "./supabase-client";
 
 // Fetch all Words from Supabase
 export const getAllWords = async (rangeFrom: number, rangeTo: number) => {
@@ -10,7 +9,7 @@ export const getAllWords = async (rangeFrom: number, rangeTo: number) => {
     error,
     count,
   } = await supabaseClient
-    .from<Word>("words")
+    .from("words")
     .select("*")
     .range(rangeFrom, rangeTo)
     .order("id", { ascending: true });
@@ -21,7 +20,7 @@ export const getAllWords = async (rangeFrom: number, rangeTo: number) => {
 // Get Words table total count
 export const getAllWordsCount = async () => {
   const { count } = await supabaseClient
-    .from<Word>("words")
+    .from("words")
     .select("*", { count: "exact" });
 
   return { count };
@@ -36,6 +35,6 @@ export const getAllWordsList = async (rangeFrom: number, rangeTo: number) => {
   if (!words) return error;
 
   // Get Wiktionary definition for each word and add it in the Word object
-  const wordsWithDefs = await getWordsWithDefinitions(words);
+  const wordsWithDefs = await getWordsWithDefinitions(words as Array<Word>);
   return wordsWithDefs;
 };

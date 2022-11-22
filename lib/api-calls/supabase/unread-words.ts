@@ -1,7 +1,6 @@
-import { supabaseClient } from "@supabase/auth-helpers-nextjs";
-
 import { Word } from "../../../types/types";
 import { getWordsWithDefinitions } from "../wiktionary/words-with-definition";
+import { supabaseClient } from "./supabase-client";
 
 // Fetch all UNREAD Words from Supabase
 export const getUnreadWords = async (rangeFrom: number, rangeTo: number) => {
@@ -10,7 +9,7 @@ export const getUnreadWords = async (rangeFrom: number, rangeTo: number) => {
     error,
     count,
   } = await supabaseClient
-    .from<Word>("words")
+    .from("words")
     .select("*")
     .limit(10)
     .range(rangeFrom, rangeTo)
@@ -23,7 +22,7 @@ export const getUnreadWords = async (rangeFrom: number, rangeTo: number) => {
 // Get UNREAD Words table total count
 export const getUnreadWordsCount = async () => {
   const { count } = await supabaseClient
-    .from<Word>("words")
+    .from("words")
     .select("*", { count: "exact" })
     .eq("isRead", false);
   return { count };
@@ -41,6 +40,6 @@ export const getUnreadWordsList = async (
   if (!words) return error;
 
   // Get Wiktionary definition for each word and add it in the Word object
-  const wordsWithDefs = await getWordsWithDefinitions(words);
+  const wordsWithDefs = await getWordsWithDefinitions(words as Array<Word>);
   return wordsWithDefs;
 };

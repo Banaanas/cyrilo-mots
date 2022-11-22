@@ -1,26 +1,27 @@
-import { supabaseClient } from "@supabase/auth-helpers-nextjs";
-
 import { Word } from "../../../types/types";
+import { supabaseClient } from "./supabase-client";
 
 // Get Word
 export const getWord = async (id: number) => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const { data: word, error } = await supabaseClient
-    .from<Word>("words")
+    .from("words")
     .select()
     .eq("id", id)
     .single(); // Get single object (not an array)
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   return { word, error };
 };
 
 // Toggle Word isRead
 export const toggleWord = async (id: number) => {
   // Get Word first
-  const { word } = await getWord(id);
+  const { word } = (await getWord(id)) as { word: Word };
 
   // Then Update (toggle) isRead value
   await supabaseClient
-    .from<Word>("words")
-    .update({ isRead: !word?.isRead }, { returning: "representation" })
+    .from("words")
+    .update({ isRead: !word?.isRead }, { count: "exact" })
     .eq("id", id);
 };

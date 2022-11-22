@@ -1,9 +1,10 @@
-import { withPageAuth } from "@supabase/auth-helpers-nextjs";
-import { GetServerSideProps } from "next";
+import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import Head from "next/head";
 
 import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
 import WordsList from "../Components/WordsList/WordsList";
+import { navLinks } from "../data/navlinks";
 import { getAllWordsCount } from "../lib/api-calls/supabase/all-words";
 import { useStoreMaxRange } from "../lib/zustand-store/usestore-max-range";
 import SEO from "../SEO/seo-data";
@@ -27,12 +28,25 @@ const AllWordsPage = ({ maxRange }: { maxRange: number }) => {
 
 export default AllWordsPage;
 
-export const getServerSideProps: GetServerSideProps = withPageAuth({
-  redirectTo: "/login",
-  async getServerSideProps() {
-    // Get max range in getServerSideProps to avoid flash content from WordsSeachListPagination, which needs a maxRange prop
-    const { count: maxRange } = await getAllWordsCount();
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext,
+) => {
+  // Create authenticated Supabase Client
+  const supabase = createServerSupabaseClient(context);
+  // Check if we have a session
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
 
-    return { props: { maxRange } };
-  },
-});
+  if (!session)
+    return {
+      redirect: {
+        destination: navLinks.login.href,
+        permanent: false,
+      },
+    };
+
+  // Max Range for ALL WORDS
+  const { count: maxRange } = await getAllWordsCount();
+  return { props: { maxRange } };
+};

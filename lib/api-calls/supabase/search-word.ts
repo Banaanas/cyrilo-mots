@@ -1,7 +1,6 @@
-import { supabaseClient } from "@supabase/auth-helpers-nextjs";
-
 import { Word } from "../../../types/types";
 import { getWordsWithDefinitions } from "../wiktionary/words-with-definition";
+import { supabaseClient } from "./supabase-client";
 
 // Fetch FILTERED Word(s) from Supabase
 export const getSearchedWords = async (
@@ -14,7 +13,7 @@ export const getSearchedWords = async (
     error,
     count,
   } = await supabaseClient
-    .from<Word>("words")
+    .from("words")
     .select("*", { count: "exact" })
     .ilike("word", `%${searchedString}%`)
     .range(rangeFrom, rangeTo)
@@ -40,6 +39,6 @@ export const getSearchedWordsList = async (
   if (!words) return error;
 
   // Get Wiktionary definition for each word and add it in the Word object
-  const wordsWithDefs = await getWordsWithDefinitions(words);
+  const wordsWithDefs = await getWordsWithDefinitions(words as Array<Word>);
   return wordsWithDefs;
 };
