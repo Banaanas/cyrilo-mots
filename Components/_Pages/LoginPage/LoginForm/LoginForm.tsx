@@ -58,6 +58,9 @@ const LoginForm = () => {
       });
 
       if (error) {
+        // getErrorMessage uses AuthAPIError when the error is typed as AuthError
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         getErrorMessage(setError, error);
       }
 

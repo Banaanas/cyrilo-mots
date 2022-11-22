@@ -1,4 +1,4 @@
-import { ApiError } from "@supabase/supabase-js";
+import { AuthApiError } from "@supabase/supabase-js";
 import { UseFormSetError } from "react-hook-form";
 
 import { LoginFormValues } from "../../../../types/types";
@@ -38,5 +38,5 @@ export const getErrorMessage: GetErrorMessage = (setError, error) => {
 
 type GetErrorMessage = (
   setError: UseFormSetError<LoginFormValues>,
-  error: ApiError | null,
+  error: AuthApiError | null,
 ) => void;
