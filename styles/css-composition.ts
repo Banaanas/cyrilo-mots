@@ -26,15 +26,15 @@ export const focusWithinStyle = css`
 
 // Function built upon Emotion CSS Prop - Use of lightColor prop was needed (doable only with a function)
 export const headerLinkButtonStyle = ({
-  lightColor,
+  color,
 }: {
-  lightColor?: boolean;
+  color?: "light" | "dark";
 }) => css`
   position: relative;
   padding: 8px;
-  color: ${lightColor ? appTheme.colors.black : appTheme.colors.white};
+  color: ${color === "light" ? appTheme.colors.black : appTheme.colors.white};
 
-  background: ${lightColor
+  background: ${color === "light"
     ? appTheme.colors.tertiary["100"]
     : appTheme.colors.tertiary["800"]};
   font-family: ${appTheme.fontFamily.montserrat},
@@ -54,7 +54,7 @@ export const headerLinkButtonStyle = ({
     inset: 0 0;
     width: 100%;
     height: 100%;
-    background-color: ${lightColor
+    background-color: ${color === "light"
       ? appTheme.colors.tertiary["200"]
       : appTheme.colors.tertiary["300"]};
     opacity: 0;
