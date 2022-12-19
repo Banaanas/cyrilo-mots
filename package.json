@@ -38,7 +38,7 @@
     "awesome-debounce-promise": "^2.1.0",
     "axios": "^1.2.0",
     "dotenv": "^16.0.3",
-    "next": "13.0.6",
+    "next": "13.0.7",
     "next-seo": "^5.15.0",
     "next-sitemap": "^3.1.32",
     "react": "18.2.0",
