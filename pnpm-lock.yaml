@@ -7,7 +7,6 @@ specifiers:
   '@emotion/styled': ^11.10.6
   '@hookform/resolvers': ^2.9.11
   '@next/eslint-plugin-next': ^13.2.4
-  '@next/font': ^13.2.4
   '@playwright/test': ^1.31.2
   '@radix-ui/react-accordion': ^1.1.1
   '@radix-ui/react-checkbox': ^1.0.3
@@ -69,7 +68,6 @@ dependencies:
   '@emotion/react': 11.10.6_pmekkgnqduwlme35zpnqhenc34
   '@emotion/styled': 11.10.6_oouaibmszuch5k64ms7uxp2aia
   '@hookform/resolvers': 2.9.11_react-hook-form@7.43.5
-  '@next/font': 13.2.4
   '@radix-ui/react-accordion': 1.1.1_biqbaboplfbrettd7655fr4n2y
   '@radix-ui/react-checkbox': 1.0.3_biqbaboplfbrettd7655fr4n2y
   '@radix-ui/react-label': 2.0.1_biqbaboplfbrettd7655fr4n2y
@@ -608,10 +606,6 @@ packages:
     dependencies:
       glob: 7.1.7
     dev: true
-
-  /@next/font/13.2.4:
-    resolution: {integrity: sha512-lMAnuOYjv5g22WhD00u0DQ9u2rTMJH0S64PKE4Sy8Y2q+FJTYs6ZHT2z3VRoI8+AOWSLK4FirpnygcjOienQ9A==}
-    dev: false
 
   /@next/swc-android-arm-eabi/13.2.4:
     resolution: {integrity: sha512-DWlalTSkLjDU11MY11jg17O1gGQzpRccM9Oes2yTqj2DpHndajrXHGxj9HGtJ+idq2k7ImUdJVWS2h2l/EDJOw==}
