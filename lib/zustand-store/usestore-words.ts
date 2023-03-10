@@ -1,4 +1,4 @@
-import create from "zustand";
+import { create } from "zustand";
 
 import { WordsWithDefList } from "../../types/types";
 import { getAllWordsList } from "../api-calls/supabase/all-words";
