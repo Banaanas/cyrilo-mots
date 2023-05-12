@@ -82,8 +82,8 @@ dependencies:
 
 devDependencies:
   '@axe-core/react':
-    specifier: ^4.7.0
-    version: 4.7.0
+    specifier: ^4.7.1-alpha.385
+    version: 4.7.1-alpha.385
   '@next/eslint-plugin-next':
     specifier: ^13.4.2
     version: 13.4.2
@@ -193,8 +193,8 @@ packages:
       '@jridgewell/gen-mapping': 0.1.1
       '@jridgewell/trace-mapping': 0.3.17
 
-  /@axe-core/react@4.7.0:
-    resolution: {integrity: sha512-13XJxwTx+oPmqUGRjS/LYB3Z0iFyyKo47ilNqChuFOhLEgwQgSp8Bhd8OvudXpNRqArgwFqcLj8s9w4gMPUg2g==}
+  /@axe-core/react@4.7.1-alpha.385:
+    resolution: {integrity: sha512-TkqoGcdWyoPa/rIR1yautb6tL3pNQcXukCr5hO/0oyxfKgH+Ir4NqgawrvgADsM4FtqgGXymX6Sqqj7m6gXBnw==}
     dependencies:
       axe-core: 4.7.0
       requestidlecallback: 0.3.0
