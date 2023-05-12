@@ -10,6 +10,7 @@
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:eslint-comments/recommended",
     "plugin:json/recommended",
+    "plugin:jsx-a11y/recommended",
     "plugin:playwright/playwright-test",
     "plugin:prettier/recommended",
     "plugin:react/recommended",
@@ -65,14 +66,6 @@
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
-    "styled-components-a11y/anchor-is-valid": [
-      "error",
-      {
-        "components": ["Link"],
-        "specialLink": ["hrefLeft", "hrefRight"],
-        "aspects": ["invalidHref", "preferButton"]
-      }
-    ]
+    "simple-import-sort/exports": "error"
   }
 }
