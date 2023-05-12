@@ -1,3 +1,9 @@
+/* ** TESTS FILE ENTIRELY SKIPPED ** */
+
+// It seems that comparison screenshots tests must be run on the same machine.
+// Github Actions runs the tests on a different machine than mine, so the tests were failing.
+// https://github.com/microsoft/playwright/issues/20903
+
 import { expect, test } from "@playwright/test";
 
 /* ** Test if screenshots are identical ** */
