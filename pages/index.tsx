@@ -1,4 +1,4 @@
-import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
+import { createPagesServerClient } from "@supabase/auth-helpers-nextjs";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import Head from "next/head";
 
@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext,
 ) => {
   // Create authenticated Supabase Client
-  const supabase = createServerSupabaseClient(context);
+  const supabase = createPagesServerClient(context);
   // Check if we have a session
   const {
     data: { session },
