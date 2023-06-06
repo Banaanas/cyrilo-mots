@@ -1,4 +1,3 @@
-import { Word } from "../../../types/types";
 import { supabaseClient } from "./supabase-client";
 
 // Get Word
@@ -17,7 +16,7 @@ export const getWord = async (id: number) => {
 // Toggle Word isRead
 export const toggleWord = async (id: number) => {
   // Get Word first
-  const { word } = (await getWord(id)) as { word: Word };
+  const { word } = await getWord(id);
 
   // Then Update (toggle) isRead value
   await supabaseClient
