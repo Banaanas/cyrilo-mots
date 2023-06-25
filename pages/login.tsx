@@ -1,4 +1,4 @@
-import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
+import { createPagesServerClient } from "@supabase/auth-helpers-nextjs";
 import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import React from "react";
@@ -27,7 +27,7 @@ export const getServerSideProps = async (
   context: GetServerSidePropsContext,
 ) => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const supabase = createServerSupabaseClient(context);
+  const supabase = createPagesServerClient(context);
   const {
     data: { session },
   } = await supabase.auth.getSession();
