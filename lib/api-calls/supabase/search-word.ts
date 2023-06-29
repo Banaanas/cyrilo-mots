@@ -8,16 +8,14 @@ export const getSearchedWords = async (
   rangeFrom: number,
   rangeTo: number,
 ) => {
-  const {
-    data: words,
-    error,
-    count,
-  } = await supabaseClient
+  const { data: words, error } = await supabaseClient
     .from("words")
     .select("*", { count: "exact" })
     .ilike("word", `%${searchedString}%`)
     .range(rangeFrom, rangeTo)
     .order("id", { ascending: true });
+
+  const count = words?.length;
 
   return { words, error, count };
 };
