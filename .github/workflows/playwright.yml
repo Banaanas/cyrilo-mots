@@ -27,8 +27,10 @@ jobs:
           run_install: false
       # https://docs.npmjs.com/cli/v8/commands/npm-ci
       # pnpm install --frozen-lockfile is the equivalent of npm-ci
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Update Lockfile and Install Dependencies
+        run: |
+          pnpm install --no-frozen-lockfile
+          pnpm install
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
