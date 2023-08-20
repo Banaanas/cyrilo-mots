@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export const useStoreMaxRange = create<State>((set) => ({
+export const useMaxRangeStore = create<State>((set) => ({
   maxRange: null,
   // Set maxRange
   setMaxRange: (maxRange) => set({ maxRange }),

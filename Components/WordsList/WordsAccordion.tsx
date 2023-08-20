@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import * as Accordion from "@radix-ui/react-accordion";
 
-import { useStoreWords } from "../../lib/zustand-store/usestore-words";
-import { useStoreWordsAccordionLoading } from "../../lib/zustand-store/usestore-words-accordion";
+import { useStoreWordsAccordionLoading } from "../../lib/zustand-store/useWordsAccordionStore";
+import { useWordsStore } from "../../lib/zustand-store/useWordsStore";
 import Loader from "../Common/Loader";
 import Word from "../Word/Word";
 
@@ -23,7 +23,7 @@ const Container = styled.div`
 `;
 
 const WordsAccordion = () => {
-  const wordsList = useStoreWords((state) => state.wordsList);
+  const wordsList = useWordsStore((state) => state.wordsList);
   const wordsAccordionState = useStoreWordsAccordionLoading(
     (state) => state.wordsAccordionState,
   );

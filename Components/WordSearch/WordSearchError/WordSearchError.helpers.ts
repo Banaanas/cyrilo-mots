@@ -1,6 +1,6 @@
 import { getAllWordsCount } from "../../../lib/api-calls/supabase/all-words";
-import { SetMaxRange } from "../../../lib/zustand-store/usestore-max-range";
-import { FetchWordsList } from "../../../lib/zustand-store/usestore-words";
+import { SetMaxRange } from "../../../lib/zustand-store/useMaxRangeStore";
+import { FetchWordsList } from "../../../lib/zustand-store/useWordsStore";
 import {
   initialRangeFrom,
   initialRangeTo,

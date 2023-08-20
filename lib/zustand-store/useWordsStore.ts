@@ -5,7 +5,7 @@ import { getAllWordsList } from "../api-calls/supabase/all-words";
 import { getSearchedWordsList } from "../api-calls/supabase/search-word";
 import { getUnreadWordsList } from "../api-calls/supabase/unread-words";
 
-export const useStoreWords = create<State>((set, get) => ({
+export const useWordsStore = create<State>((set, get) => ({
   wordsList: [],
 
   // Fetch and Set ALL Words List

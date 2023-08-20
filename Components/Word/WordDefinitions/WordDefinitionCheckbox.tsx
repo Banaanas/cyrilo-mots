@@ -6,7 +6,7 @@ import React, { useId, useState } from "react";
 import { Check as CheckIcon } from "react-feather";
 
 import { toggleWord } from "../../../lib/api-calls/supabase/word";
-import { useStoreWords } from "../../../lib/zustand-store/usestore-words";
+import { useWordsStore } from "../../../lib/zustand-store/useWordsStore";
 import appTheme from "../../../styles/appTheme";
 import Loader from "../../Common/Loader";
 
@@ -53,7 +53,7 @@ const WordDefinitionCheckbox = ({
   // Set unique ID to checkbox
   const checkboxID = useId();
 
-  const toggleIsRead = useStoreWords((state) => state.toggleIsWordRead);
+  const toggleIsRead = useWordsStore((state) => state.toggleIsWordRead);
 
   const handleCheckboxChange = async () => {
     setIsLoading(true);

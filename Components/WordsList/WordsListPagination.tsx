@@ -5,7 +5,7 @@ import {
 } from "react-feather";
 import ReactPaginate from "react-paginate";
 
-import { useStoreWordsAccordionLoading } from "../../lib/zustand-store/usestore-words-accordion";
+import { useStoreWordsAccordionLoading } from "../../lib/zustand-store/useWordsAccordionStore";
 import appTheme from "../../styles/appTheme";
 
 const ReactPaginateComponent = styled(ReactPaginate)`

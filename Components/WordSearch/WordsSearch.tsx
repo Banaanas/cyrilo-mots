@@ -1,10 +1,10 @@
 import AwesomeDebouncePromise from "awesome-debounce-promise";
 import { ChangeEvent, FormEvent, useId, useRef, useState } from "react";
 
-import { useStoreMaxRange } from "../../lib/zustand-store/usestore-max-range";
-import { useStoreWords } from "../../lib/zustand-store/usestore-words";
-import { useStoreWordsAccordionLoading } from "../../lib/zustand-store/usestore-words-accordion";
-import { useStoreWordsSearch } from "../../lib/zustand-store/usestore-words-search";
+import { useMaxRangeStore } from "../../lib/zustand-store/useMaxRangeStore";
+import { useStoreWordsAccordionLoading } from "../../lib/zustand-store/useWordsAccordionStore";
+import { useWordsSearchStore } from "../../lib/zustand-store/useWordsSearchStore";
+import { useWordsStore } from "../../lib/zustand-store/useWordsStore";
 import {
   initialRangeFrom,
   initialRangeTo,
@@ -26,16 +26,16 @@ import {
 } from "./WordsSearch.styles";
 
 const WordsSearch = () => {
-  const setSearchedString = useStoreWordsSearch(
+  const setSearchedString = useWordsSearchStore(
     (state) => state.setSearchedString,
   );
   const [searchError, setSearchError] = useState<WordSearchError>(null);
-  const setWordsList = useStoreWords((state) => state.setWordsList);
+  const setWordsList = useWordsStore((state) => state.setWordsList);
 
   // Store maxRange in store
-  const setMaxRange = useStoreMaxRange((state) => state.setMaxRange);
+  const setMaxRange = useMaxRangeStore((state) => state.setMaxRange);
 
-  const fetchAllWordsList = useStoreWords((state) => state.fetchAllWordsList);
+  const fetchAllWordsList = useWordsStore((state) => state.fetchAllWordsList);
 
   const setWordsAccordionState = useStoreWordsAccordionLoading(
     (state) => state.setWordsAccordionState,

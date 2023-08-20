@@ -6,12 +6,12 @@ import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
 import WordsList from "../Components/WordsList/WordsList";
 import { navLinks } from "../data/navlinks";
 import { getUnreadWordsCount } from "../lib/api-calls/supabase/unread-words";
-import { useStoreMaxRange } from "../lib/zustand-store/usestore-max-range";
+import { useMaxRangeStore } from "../lib/zustand-store/useMaxRangeStore";
 import SEO from "../SEO/seo-data";
 
 const HomePage = ({ maxRange }: { maxRange: number }) => {
   // Store maxRange in store
-  const setMaxRange = useStoreMaxRange((state) => state.setMaxRange);
+  const setMaxRange = useMaxRangeStore((state) => state.setMaxRange);
   setMaxRange(maxRange);
 
   return (

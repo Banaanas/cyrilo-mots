@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export const useStoreWordsSearch = create<State>((set) => ({
+export const useWordsSearchStore = create<State>((set) => ({
   searchedString: "",
   // Set maxRange
   setSearchedString: (searchedString) => set({ searchedString }),

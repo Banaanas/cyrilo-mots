@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
 import { useEffect } from "react";
 
-import { useStoreMaxRange } from "../../lib/zustand-store/usestore-max-range";
-import { useStoreWords } from "../../lib/zustand-store/usestore-words";
-import { useStoreWordsAccordionLoading } from "../../lib/zustand-store/usestore-words-accordion";
-import { useStoreWordsSearch } from "../../lib/zustand-store/usestore-words-search";
+import { useMaxRangeStore } from "../../lib/zustand-store/useMaxRangeStore";
+import { useStoreWordsAccordionLoading } from "../../lib/zustand-store/useWordsAccordionStore";
+import { useWordsSearchStore } from "../../lib/zustand-store/useWordsSearchStore";
+import { useWordsStore } from "../../lib/zustand-store/useWordsStore";
 import appTheme from "../../styles/appTheme";
 import WordsSearch from "../WordSearch/WordsSearch";
 import WordsAccordion from "./WordsAccordion";
@@ -33,16 +33,16 @@ const Container = styled.div`
 `;
 
 const WordsList = ({ listType }: WordsListProps) => {
-  const searchedString = useStoreWordsSearch((state) => state.searchedString);
-  const fetchSearchedWordsList = useStoreWords(
+  const searchedString = useWordsSearchStore((state) => state.searchedString);
+  const fetchSearchedWordsList = useWordsStore(
     (state) => state.fetchSearchedWordsList,
   );
-  const fetchAllWordsList = useStoreWords((state) => state.fetchAllWordsList);
-  const fetchUnreadWordsList = useStoreWords(
+  const fetchAllWordsList = useWordsStore((state) => state.fetchAllWordsList);
+  const fetchUnreadWordsList = useWordsStore(
     (state) => state.fetchUnreadWordsList,
   );
 
-  const maxRange = useStoreMaxRange((state) => state.maxRange);
+  const maxRange = useMaxRangeStore((state) => state.maxRange);
 
   const pagesCount = getPagesCount(maxRange);
 
