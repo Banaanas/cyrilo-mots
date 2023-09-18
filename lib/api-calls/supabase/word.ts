@@ -1,9 +1,15 @@
+import { PostgrestError } from "@supabase/supabase-js";
+
+import { Word } from "../../../types/types";
 import { supabaseClient } from "./supabase-client";
 
 // Get Word
 export const getWord = async (id: number) => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const { data: word, error } = await supabaseClient
+  const {
+    data: word,
+    error,
+  }: { data: Word | null; error: PostgrestError | null } = await supabaseClient
     .from("words")
     .select()
     .eq("id", id)
