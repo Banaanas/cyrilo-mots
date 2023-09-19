@@ -2,7 +2,7 @@
 
 import styled from "@emotion/styled";
 import * as Checkbox from "@radix-ui/react-checkbox";
-import React, { useId, useState } from "react";
+import { useId, useState } from "react";
 import { Check as CheckIcon } from "react-feather";
 
 import { toggleWord } from "../../../lib/api-calls/supabase/word";

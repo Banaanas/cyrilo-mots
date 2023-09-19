@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React from "react";
+import { CSSProperties, ReactNode } from "react";
 
 const Container = styled.div<{ maxWidth: string }>`
   width: 100%;
@@ -27,6 +27,6 @@ export default MaxWidthWrapper;
 
 interface MaxWidthWrapperProps {
   maxWidth: string;
-  style?: React.CSSProperties;
-  children: React.ReactNode;
+  style?: CSSProperties;
+  children: ReactNode;
 }

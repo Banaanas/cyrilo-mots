@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import React from "react";
 
 import appTheme from "../../../styles/appTheme";
 import LoginForm from "./LoginForm/LoginForm";

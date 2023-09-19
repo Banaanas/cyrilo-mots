@@ -1,5 +1,4 @@
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
-import React from "react";
 import { GitHub as GitHubIcon } from "react-feather";
 
 import { LoginButton } from "../LoginButton/LoginButton.styles";

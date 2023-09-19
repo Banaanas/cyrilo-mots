@@ -1,5 +1,3 @@
-import React from "react";
-
 import { SearchErrorText } from "../WordsSearch.styles";
 import { getErrorText, WordSearchError } from "./WordSearchError.helpers";
 

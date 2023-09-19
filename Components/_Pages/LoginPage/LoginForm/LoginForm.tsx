@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/router";
-import React, { useId } from "react";
+import { useId } from "react";
 import { Lock as PasswordIcon, Mail as MailIcon } from "react-feather";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
