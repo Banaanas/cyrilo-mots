@@ -1,7 +1,6 @@
 import { createPagesServerClient } from "@supabase/auth-helpers-nextjs";
 import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
-import React from "react";
 
 import LoginSection from "../Components/_Pages/LoginPage/LoginSection";
 import StyledPageMain from "../Components/StyledComponents/StyledPageMain";

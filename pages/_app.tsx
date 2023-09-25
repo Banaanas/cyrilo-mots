@@ -4,7 +4,7 @@ import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import { Session, SessionContextProvider } from "@supabase/auth-helpers-react";
 import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
-import React, { useState } from "react";
+import { useState } from "react";
 
 import Layout from "../Components/Layout/Layout";
 import DefaultSEO from "../SEO/next-seo.config";
