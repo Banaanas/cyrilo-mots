@@ -15,15 +15,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "16.x"
-      - uses: pnpm/action-setup@v2.2.2
+          node-version: "20.x"
+      - uses: pnpm/action-setup@v2
         name: Install PNPM
         with:
-          version: 7
+          version: 8
           run_install: false
       # https://docs.npmjs.com/cli/v8/commands/npm-ci
       # pnpm install --frozen-lockfile is the equivalent of npm-ci
