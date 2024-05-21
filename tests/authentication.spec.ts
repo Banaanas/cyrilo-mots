@@ -8,7 +8,7 @@ test("Login and Logout process", async ({ page }) => {
   await page.goto("/");
 
   // Redirect to LoginPage
-  await expect(page).toHaveURL("/login", { timeout: 10000 });
+  await expect(page).toHaveURL("/login");
 
   await page.locator("data-test=login-mail-input").fill(accountMailTest);
   await page
@@ -17,7 +17,7 @@ test("Login and Logout process", async ({ page }) => {
   await page.locator("data-test=login-form-button").click();
 
   // Redirect to HomePage after login
-  await expect(page).toHaveURL("/");
+  await expect(page).toHaveURL("/", { timeout: 10000 });
 
   // Expect HomePage to have H1 and logout Button
   const titleH1 = page.locator("h1");
