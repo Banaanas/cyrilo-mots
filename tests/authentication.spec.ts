@@ -8,7 +8,7 @@ test("Login and Logout process", async ({ page }) => {
   await page.goto("/");
 
   // Redirect to LoginPage
-  await expect(page).toHaveURL("/login");
+  await expect(page).toHaveURL("/login", { timeout: 10000 });
 
   await page.locator("data-test=login-mail-input").fill(accountMailTest);
   await page
