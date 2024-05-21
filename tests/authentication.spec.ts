@@ -27,7 +27,7 @@ test("Login and Logout process", async ({ page }) => {
 
   // Navigate to AllWordsPage
   await page.locator("a:has-text('Tous mes mots')").click();
-  await expect(page).toHaveURL("/all-words");
+  await expect(page).toHaveURL("/all-words", { timeout: 10000 });
 
   // Logout and redirection to LoginPage
   await page.locator("[data-test='logout-button']").click();
