@@ -17,7 +17,7 @@ test("Login and Logout process", async ({ page }) => {
   await page.locator("data-test=login-form-button").click();
 
   // Redirect to HomePage after login
-  await expect(page).toHaveURL("/", { timeout: 10000 });
+  await expect(page).toHaveURL("/", { timeout: 5000 });
 
   // Expect HomePage to have H1 and logout Button
   const titleH1 = page.locator("h1");
@@ -27,7 +27,7 @@ test("Login and Logout process", async ({ page }) => {
 
   // Navigate to AllWordsPage
   await page.locator("a:has-text('Tous mes mots')").click();
-  await expect(page).toHaveURL("/all-words", { timeout: 10000 });
+  await expect(page).toHaveURL("/all-words", { timeout: 5000 });
 
   // Logout and redirection to LoginPage
   await page.locator("[data-test='logout-button']").click();
