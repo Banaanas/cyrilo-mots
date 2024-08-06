@@ -117,7 +117,7 @@ git clone https://github.com/Banaanas/cyrilo-mots
 2 - Install NPM Packages / Dependencies
 
 ```sh
-npm clone install
+npm install
 ```
 
 3 - Development Server
