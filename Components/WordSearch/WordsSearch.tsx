@@ -14,7 +14,7 @@ import {
   resetWordsList,
   WordSearchError,
 } from "./WordSearchError/WordSearchError.helpers";
-import WordsSearchError from "./WordSearchError/WordsSearchError";
+import { WordsSearchError } from "./WordSearchError/WordsSearchError";
 import { getWordsSearch } from "./WordsSearch.helpers";
 import {
   IconsContainer,
@@ -25,7 +25,7 @@ import {
   StyledSearchIcon,
 } from "./WordsSearch.styles";
 
-const WordsSearch = () => {
+export const WordsSearch = () => {
   const setSearchedString = useWordsSearchStore(
     (state) => state.setSearchedString,
   );
@@ -111,7 +111,7 @@ const WordsSearch = () => {
   // When click on the Cross Icon, it clears the input's value and reset the WordsList
   // Use of useState and NOT Zustand store's searchedString value because this value is updated with onChange, within a debounce Function, too slow to update the value and delete the content of the input
   const [inputValue, setInputValue] = useState("");
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleOnInput = (event: FormEvent<HTMLInputElement>) =>
     setInputValue(event.currentTarget.value);
@@ -120,28 +120,24 @@ const WordsSearch = () => {
     setInputValue("");
     setSearchedString("");
     setWordsAccordionState("loading");
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    inputRef.current.value = "";
+
+    if (inputRef.current) {
+      inputRef.current.value = ""; // Safe access to `value`
+    }
+
     await handleResetList();
     setWordsAccordionState("normal");
   };
-
   return (
     <SearchContainer>
       <Label htmlFor={inputID}>
         <IconsContainer>
           <StyledSearchIcon hidden={!!inputValue} />
 
-          <StyledCrossIcon
-            hidden={!inputValue}
-            // eslint-disable-next-line @typescript-eslint/no-misused-promises
-            onClick={clearInputValue}
-          />
+          <StyledCrossIcon hidden={!inputValue} onClick={clearInputValue} />
         </IconsContainer>
         <Input
           ref={inputRef}
-          // eslint-disable-next-line @typescript-eslint/no-misused-promises
           onChange={debouncedHandleWordsSearch}
           onInput={handleOnInput}
           id={inputID}
@@ -153,5 +149,3 @@ const WordsSearch = () => {
     </SearchContainer>
   );
 };
-
-export default WordsSearch;
