@@ -5,7 +5,6 @@ import { useId } from "react";
 import { Lock as PasswordIcon, Mail as MailIcon } from "react-feather";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
 import { navLinks } from "../../../../data/navlinks";
 import { LoginFormValues } from "../../../../types/types";
 import { getErrorMessage } from "./LoginForm.helpers";
@@ -16,10 +15,11 @@ import {
   Input,
   Label,
 } from "./LoginForm.styles";
-import LoginFormButton from "./LoginFormButton";
-import LoginFormError from "./LoginFormError";
+import { LoginFormButton } from "./LoginFormButton";
+import { LoginFormError } from "./LoginFormError";
+import { AuthApiError } from "@supabase/supabase-js";
 
-// Form Validation Schema - Yup
+// Form Validation Schema - Zod
 const loginValidationSchema = z.object({
   email: z
     .string()
@@ -27,10 +27,9 @@ const loginValidationSchema = z.object({
   password: z.string(),
 });
 
-const LoginForm = () => {
+export const LoginForm = () => {
   const supabaseClient = useSupabaseClient();
   const router = useRouter();
-
   const {
     register,
     handleSubmit,
@@ -47,7 +46,6 @@ const LoginForm = () => {
 
   const handleFormSubmit = async (formData: LoginFormValues) => {
     const { email, password } = formData;
-
     try {
       const {
         data: { user },
@@ -58,22 +56,18 @@ const LoginForm = () => {
       });
 
       if (error) {
-        // getErrorMessage uses AuthAPIError when the error is typed as AuthError
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        getErrorMessage(setError, error);
+        // Cast the error to AuthApiError to resolve the type mismatch
+        getErrorMessage(setError, error as AuthApiError);
       }
 
-      // eslint-disable-next-line no-void
       if (user) await router.push(navLinks.home.href);
-    } catch (error) {
+    } catch {
       throw new Error();
     }
   };
 
   return (
     <FormContainer>
-      {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
       <Form onSubmit={handleSubmit(handleFormSubmit)}>
         <Container>
           <Label htmlFor={mailInputID}>
@@ -110,5 +104,3 @@ const LoginForm = () => {
     </FormContainer>
   );
 };
-
-export default LoginForm;
