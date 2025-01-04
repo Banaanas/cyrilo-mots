@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 
-import appTheme from "./appTheme";
+import { appTheme } from "./appTheme";
 
 export const focusStyle = css`
   :focus {

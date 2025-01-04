@@ -9,7 +9,6 @@ export const useWordsStore = create<State>((set, get) => ({
   wordsList: [],
 
   // Fetch and Set ALL Words List
-  // eslint-disable-next-line consistent-return
   fetchAllWordsList: async (rangeFrom, rangeTo) => {
     try {
       const words = await getAllWordsList(rangeFrom, rangeTo);
@@ -17,13 +16,12 @@ export const useWordsStore = create<State>((set, get) => ({
       // Set wordsList in Zustand store
       set({ wordsList: words });
       return words;
-    } catch (error) {
+    } catch {
       throw new Error();
     }
   },
 
   // Fetch and Set UNREAD Words List
-  // eslint-disable-next-line consistent-return
   fetchUnreadWordsList: async (rangeFrom, rangeTo) => {
     try {
       const words = await getUnreadWordsList(rangeFrom, rangeTo);
@@ -31,7 +29,7 @@ export const useWordsStore = create<State>((set, get) => ({
       // Set wordsList in Zustand store
       set({ wordsList: words });
       return words;
-    } catch (error) {
+    } catch {
       throw new Error();
     }
   },
@@ -48,7 +46,7 @@ export const useWordsStore = create<State>((set, get) => ({
       // Set wordsList in Zustand store
       set({ wordsList: words });
       return words;
-    } catch (error) {
+    } catch {
       throw new Error();
     }
   },

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import appTheme from "../../../styles/appTheme";
+import { appTheme } from "../../../styles/appTheme";
 
 const Container = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ const Paragraph = styled.p`
   text-align: center;
 `;
 
-const NoNewSignUpMessage = () => {
+export const NoNewSignUpMessage = () => {
   return (
     <Container>
       {/* eslint-disable-next-line react/no-unescaped-entities */}
@@ -26,5 +26,3 @@ const NoNewSignUpMessage = () => {
     </Container>
   );
 };
-
-export default NoNewSignUpMessage;

@@ -24,7 +24,7 @@ export const getWiktionaryDefinitions = async (word: string) => {
     const wordDefinitions = getWordDefinitionsFromDocument(document);
 
     return wordDefinitions;
-  } catch (error) {
+  } catch {
     // Return String (Error Text used in  WordsDefinition.tsx)
     return fetchWiktionaryDefinitionsErrorString;
   }

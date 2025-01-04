@@ -16,7 +16,9 @@ const Container = styled.div`
   padding: 16px;
 `;
 
-const WordDefinitions = ({ wiktionaryDefinitions }: WordDefinitionProps) => {
+export const WordDefinitions = ({
+  wiktionaryDefinitions,
+}: WordDefinitionProps) => {
   // STRING / UNDEFINED - If Wiktionary API Call resulted in an Error, then a string has been returned from getWiktionaryDefinitions() function - get-wiktionary-definitions.ts
   if (
     !wiktionaryDefinitions ||
@@ -34,8 +36,6 @@ const WordDefinitions = ({ wiktionaryDefinitions }: WordDefinitionProps) => {
 
   // ARRAY<STRING> - If Wiktionary API Call resulted in a Success, then an Array of strings has been returned from getWiktionaryDefinitions() function - get-wiktionary-definitions.ts
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
   return (
     <>
       {wiktionaryDefinitions.map((definition) => {
@@ -49,8 +49,6 @@ const WordDefinitions = ({ wiktionaryDefinitions }: WordDefinitionProps) => {
     </>
   );
 };
-
-export default WordDefinitions;
 
 interface WordDefinitionProps {
   wiktionaryDefinitions: WiktionaryDefinitions;

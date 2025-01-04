@@ -3,7 +3,7 @@ import { GitHub as GitHubIcon } from "react-feather";
 
 import { LoginButton } from "../LoginButton/LoginButton.styles";
 
-const LoginGitHub = () => {
+export const LoginGitHub = () => {
   const supabaseClient = useSupabaseClient();
 
   const signIgnWithGitHub = async () => {
@@ -11,21 +11,15 @@ const LoginGitHub = () => {
       await supabaseClient.auth.signInWithOAuth({
         provider: "github",
       });
-    } catch (error) {
+    } catch {
       throw new Error();
     }
   };
 
   return (
-    <LoginButton
-      type="button"
-      // eslint-disable-next-line @typescript-eslint/no-misused-promises
-      onClick={signIgnWithGitHub}
-    >
+    <LoginButton type="button" onClick={signIgnWithGitHub}>
       <GitHubIcon aria-hidden="true" />
       Me connecter avec GitHub
     </LoginButton>
   );
 };
-
-export default LoginGitHub;

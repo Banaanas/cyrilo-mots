@@ -3,10 +3,10 @@ import * as Accordion from "@radix-ui/react-accordion";
 
 import { useStoreWordsAccordionLoading } from "../../lib/zustand-store/useWordsAccordionStore";
 import { useWordsStore } from "../../lib/zustand-store/useWordsStore";
-import Loader from "../Common/Loader";
-import Word from "../Word/Word";
+import { Loader } from "../Common/Loader";
+import { Word } from "../Word/Word";
 
-const AccordionRoot = styled(Accordion.Root)`
+export const AccordionRoot = styled(Accordion.Root)`
   display: flex;
   flex-direction: column;
   justify-self: start;
@@ -22,7 +22,7 @@ const Container = styled.div`
   flex-grow: 1;
 `;
 
-const WordsAccordion = () => {
+export const WordsAccordion = () => {
   const wordsList = useWordsStore((state) => state.wordsList);
   const wordsAccordionState = useStoreWordsAccordionLoading(
     (state) => state.wordsAccordionState,
@@ -45,5 +45,3 @@ const WordsAccordion = () => {
     </AccordionRoot>
   );
 };
-
-export default WordsAccordion;

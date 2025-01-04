@@ -1,5 +1,5 @@
-import ErrorPage from "../Components/_Pages/ErrorPages/ErrorPage";
-import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
+import { ErrorPage } from "../Components/_Pages/ErrorPages/ErrorPage";
+import { StyledPageMain } from "../Components/StyledComponents/StyledPageMain";
 
 const Custom500Page = () => {
   return (

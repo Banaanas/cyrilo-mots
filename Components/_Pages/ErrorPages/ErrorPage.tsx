@@ -3,10 +3,10 @@ import NextLink from "next/link";
 import { Home as HomeIcon } from "react-feather";
 
 import { navLinks } from "../../../data/navlinks";
-import appTheme from "../../../styles/appTheme";
-import StyledErrorPagesContainer from "../../StyledComponents/StyledErrorPagesContainer";
-import StyledH1 from "../../StyledComponents/StyledH1";
-import StyledPageMain from "../../StyledComponents/StyledPageMain";
+import { appTheme } from "../../../styles/appTheme";
+import { StyledErrorPagesContainer } from "../../StyledComponents/StyledErrorPagesContainer";
+import { StyledH1 } from "../../StyledComponents/StyledH1";
+import { StyledPageMain } from "../../StyledComponents/StyledPageMain";
 
 const StyledNextLink = styled(NextLink)`
   position: relative;
@@ -41,7 +41,7 @@ const StyledNextLink = styled(NextLink)`
   }
 `;
 
-const ErrorPage = ({ errorCode }: ErrorPageProps) => {
+export const ErrorPage = ({ errorCode }: ErrorPageProps) => {
   return (
     <StyledPageMain>
       <StyledErrorPagesContainer>
@@ -54,8 +54,6 @@ const ErrorPage = ({ errorCode }: ErrorPageProps) => {
     </StyledPageMain>
   );
 };
-
-export default ErrorPage;
 
 interface ErrorPageProps {
   errorCode: "404" | "500";

@@ -12,7 +12,7 @@ import {
   SubHeaderLink,
 } from "./Header.styles";
 
-const Header = () => {
+export const Header = () => {
   const supabaseClient = useSupabaseClient();
   const { pathname, push } = useRouter();
 
@@ -21,7 +21,6 @@ const Header = () => {
 
   const handleLogOut = async () => {
     await supabaseClient.auth.signOut();
-    // eslint-disable-next-line no-void
     void push(navLinks.login.href);
   };
 
@@ -31,11 +30,7 @@ const Header = () => {
         <SubHeaderLink href={subheaderLink.href} color="light">
           {subheaderLink.name}
         </SubHeaderLink>
-        <SubHeaderButton
-          // eslint-disable-next-line @typescript-eslint/no-misused-promises
-          onClick={handleLogOut}
-          data-test="logout-button"
-        >
+        <SubHeaderButton onClick={handleLogOut} data-test="logout-button">
           Déconnexion
         </SubHeaderButton>
       </SubHeader>
@@ -44,5 +39,3 @@ const Header = () => {
     </StyledHeader>
   );
 };
-
-export default Header;

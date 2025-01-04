@@ -5,7 +5,6 @@ import { supabaseClient } from "./supabase-client";
 
 // Get Word
 export const getWord = async (id: number) => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const {
     data: word,
     error,
@@ -15,7 +14,6 @@ export const getWord = async (id: number) => {
     .eq("id", id)
     .single(); // Get single object (not an array)
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   return { word, error };
 };
 

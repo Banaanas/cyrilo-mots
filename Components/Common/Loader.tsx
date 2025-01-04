@@ -1,7 +1,7 @@
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 
-import appTheme from "../../styles/appTheme";
+import { appTheme } from "../../styles/appTheme";
 
 const rotateAnimation = keyframes`
   0% {
@@ -26,11 +26,9 @@ const Container = styled.div<{ size?: string; width?: string; color?: string }>`
   animation: ${rotateAnimation} 0.75s infinite linear;
 `;
 
-const Loader = ({ size, width, color }: LoaderProps) => {
+export const Loader = ({ size, width, color }: LoaderProps) => {
   return <Container size={size} width={width} color={color} />;
 };
-
-export default Loader;
 
 interface LoaderProps {
   size?: string;

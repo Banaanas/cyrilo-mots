@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 
-const colors = css`
+export const colors = css`
   /* Primary Color */
   --color-primary-100: hsl(158, 92%, 90%);
   --color-primary-200: hsl(163, 92%, 79%);
@@ -51,5 +51,3 @@ const colors = css`
   --color-scrollbar: var(--color-tertiary-900);
   --color-scrollbar-background: var(--color-tertiary-200);
 `;
-
-export default colors;

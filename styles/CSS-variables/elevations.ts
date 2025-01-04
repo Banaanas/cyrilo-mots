@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 
-const elevations = css`
+export const elevations = css`
   /* Elevations */
 
   --elevation-1: 0 2px 4px rgba(0, 0, 0, 0.24);
@@ -8,5 +8,3 @@ const elevations = css`
   --elevation-3: 0 8px 16px rgba(0, 0, 0, 0.12);
   --elevation-4: 0 16px 24px rgba(0, 0, 0, 0.12);
 `;
-
-export default elevations;

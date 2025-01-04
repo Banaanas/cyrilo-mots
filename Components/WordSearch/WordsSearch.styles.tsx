@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { Search as SearchIcon, X as CrossIcon } from "react-feather";
 
-import appTheme from "../../styles/appTheme";
+import { appTheme } from "../../styles/appTheme";
 import { focusWithinStyle } from "../../styles/css-composition";
 
 export const SearchContainer = styled.div`

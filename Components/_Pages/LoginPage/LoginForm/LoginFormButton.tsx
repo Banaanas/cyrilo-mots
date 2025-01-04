@@ -1,14 +1,14 @@
 import styled from "@emotion/styled";
 
-import appTheme from "../../../../styles/appTheme";
-import Loader from "../../../Common/Loader";
+import { appTheme } from "../../../../styles/appTheme";
+import { Loader } from "../../../Common/Loader";
 import { LoginButton } from "../LoginButton/LoginButton.styles";
 
 const ButtonText = styled.span`
   margin: 0 8px;
 `;
 
-const LoginFormButton = ({ isLoading }: LoginButtonProps) => {
+export const LoginFormButton = ({ isLoading }: LoginButtonProps) => {
   return (
     <LoginButton
       type="submit"
@@ -35,8 +35,6 @@ const LoginFormButton = ({ isLoading }: LoginButtonProps) => {
     </LoginButton>
   );
 };
-
-export default LoginFormButton;
 
 interface LoginButtonProps {
   isLoading: boolean;

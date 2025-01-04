@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import appTheme from "../../styles/appTheme";
+import { appTheme } from "../../styles/appTheme";
 
 export const WordDefinitionContainer = styled.div`
   display: flex;

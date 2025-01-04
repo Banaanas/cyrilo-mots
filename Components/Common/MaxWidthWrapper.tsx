@@ -11,7 +11,7 @@ const Container = styled.div<{ maxWidth: string }>`
   padding-right: 16px;
 `;
 
-const MaxWidthWrapper = ({
+export const MaxWidthWrapper = ({
   maxWidth,
   style,
   children,
@@ -22,8 +22,6 @@ const MaxWidthWrapper = ({
     </Container>
   );
 };
-
-export default MaxWidthWrapper;
 
 interface MaxWidthWrapperProps {
   maxWidth: string;

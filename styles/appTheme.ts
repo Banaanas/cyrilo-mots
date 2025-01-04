@@ -22,7 +22,7 @@ const QUERIES = {
   desktopAndUp: `(min-width: ${BREAKPOINTS.desktopMin}px)`,
 };
 
-const appTheme = {
+export const appTheme = {
   /* CSS VARIABLES */
   colors: {
     primary: {
@@ -111,5 +111,3 @@ const appTheme = {
   headerHeight: "72px",
   queries: QUERIES,
 };
-
-export default appTheme;

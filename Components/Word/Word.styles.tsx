@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import * as Accordion from "@radix-ui/react-accordion";
 import { ChevronDown as ChevronIcon } from "react-feather";
 
-import appTheme from "../../styles/appTheme";
+import { appTheme } from "../../styles/appTheme";
 
 export const AccordionItem = styled(Accordion.Item)`
   width: 95vw;

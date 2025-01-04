@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 
-const fontProperties = css`
+export const fontProperties = css`
   /* Font Weight */
   --font-weight-light: 400;
   --font-weight-medium: 500;
@@ -28,5 +28,3 @@ const fontProperties = css`
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
 `;
-
-export default fontProperties;

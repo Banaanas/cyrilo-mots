@@ -5,16 +5,16 @@ import { useMaxRangeStore } from "../../lib/zustand-store/useMaxRangeStore";
 import { useStoreWordsAccordionLoading } from "../../lib/zustand-store/useWordsAccordionStore";
 import { useWordsSearchStore } from "../../lib/zustand-store/useWordsSearchStore";
 import { useWordsStore } from "../../lib/zustand-store/useWordsStore";
-import appTheme from "../../styles/appTheme";
-import WordsSearch from "../WordSearch/WordsSearch";
-import WordsAccordion from "./WordsAccordion";
+import { appTheme } from "../../styles/appTheme";
+import { WordsSearch } from "../WordSearch/WordsSearch";
+import { WordsAccordion } from "./WordsAccordion";
 import {
   getPagesCount,
   getPagination,
   initialRangeFrom,
   initialRangeTo,
 } from "./WordsList.helpers";
-import WordsListPagination from "./WordsListPagination";
+import { WordsListPagination } from "./WordsListPagination";
 
 const Container = styled.div`
   display: flex;
@@ -32,7 +32,7 @@ const Container = styled.div`
   }
 `;
 
-const WordsList = ({ listType }: WordsListProps) => {
+export const WordsList = ({ listType }: WordsListProps) => {
   const searchedString = useWordsSearchStore((state) => state.searchedString);
   const fetchSearchedWordsList = useWordsStore(
     (state) => state.fetchSearchedWordsList,
@@ -66,7 +66,7 @@ const WordsList = ({ listType }: WordsListProps) => {
         await fetchUnreadWordsList(fromRange, toRange);
 
       setWordsAccordionState("normal");
-    } catch (error) {
+    } catch {
       throw new Error();
     }
   };
@@ -86,13 +86,12 @@ const WordsList = ({ listType }: WordsListProps) => {
     try {
       // Fetch wordsList
       await fetchAsyncData(rangeFrom, rangeTo);
-    } catch (error) {
+    } catch {
       throw new Error();
     }
   };
 
   useEffect(() => {
-    // eslint-disable-next-line no-void
     void fetchAsyncData(initialRangeFrom, initialRangeTo);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -105,8 +104,6 @@ const WordsList = ({ listType }: WordsListProps) => {
     </Container>
   );
 };
-
-export default WordsList;
 
 interface WordsListProps {
   listType: "all-words" | "unread-words-only";

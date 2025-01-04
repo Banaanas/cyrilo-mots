@@ -6,7 +6,7 @@ import {
 import ReactPaginate from "react-paginate";
 
 import { useStoreWordsAccordionLoading } from "../../lib/zustand-store/useWordsAccordionStore";
-import appTheme from "../../styles/appTheme";
+import { appTheme } from "../../styles/appTheme";
 
 const ReactPaginateComponent = styled(ReactPaginate)`
   all: unset; // Remove Browser list style
@@ -103,7 +103,7 @@ const ReactPaginateComponent = styled(ReactPaginate)`
   }
 `;
 
-const WordsListPagination = ({
+export const WordsListPagination = ({
   onPageChange,
   pageCount,
 }: WordsListPaginationProps) => {
@@ -118,7 +118,6 @@ const WordsListPagination = ({
   return (
     <ReactPaginateComponent
       pageCount={pageCount}
-      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onPageChange={onPageChange}
       pageRangeDisplayed={2}
       marginPagesDisplayed={1}
@@ -133,8 +132,6 @@ const WordsListPagination = ({
     />
   );
 };
-
-export default WordsListPagination;
 
 interface WordsListPaginationProps {
   onPageChange: ({ selected }: { selected: number }) => Promise<void>;

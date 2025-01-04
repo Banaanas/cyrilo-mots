@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import appTheme from "../../../styles/appTheme";
+import { appTheme } from "../../../styles/appTheme";
 
 const Separator = styled.div`
   display: flex;
@@ -37,8 +37,6 @@ const Separator = styled.div`
   }
 `;
 
-const LoginSeparator = () => {
+export const LoginSeparator = () => {
   return <Separator>ou</Separator>;
 };
-
-export default LoginSeparator;

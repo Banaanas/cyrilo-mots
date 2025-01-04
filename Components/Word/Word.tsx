@@ -7,8 +7,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "./Word.styles";
-import WordDefinitionsCheckbox from "./WordDefinitions/WordDefinitionCheckbox";
-import WordDefinitions from "./WordDefinitions/WordDefinitions";
+import { WordDefinitionCheckbox } from "./WordDefinitions/WordDefinitionCheckbox";
+import { WordDefinitions } from "./WordDefinitions/WordDefinitions";
 
 const Article = styled.article`
   display: flex;
@@ -17,7 +17,12 @@ const Article = styled.article`
   justify-content: center;
 `;
 
-const Word = ({ id, word, isRead, wiktionaryDefinitions }: WordProps) => {
+export const Word = ({
+  id,
+  word,
+  isRead,
+  wiktionaryDefinitions,
+}: WordProps) => {
   return (
     <AccordionItem value={id.toString()}>
       <AccordionTrigger>
@@ -26,15 +31,13 @@ const Word = ({ id, word, isRead, wiktionaryDefinitions }: WordProps) => {
       </AccordionTrigger>
       <AccordionContent asChild>
         <Article>
-          <WordDefinitionsCheckbox id={id} isRead={isRead} />
+          <WordDefinitionCheckbox id={id} isRead={isRead} />
           <WordDefinitions wiktionaryDefinitions={wiktionaryDefinitions} />
         </Article>
       </AccordionContent>
     </AccordionItem>
   );
 };
-
-export default Word;
 
 interface WordProps {
   id: number;

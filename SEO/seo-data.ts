@@ -1,6 +1,6 @@
 const appName = "Mots à Moi";
 
-const SEO: SEOProps = {
+export const SEO: SEOProps = {
   home: {
     title: `${appName} | Non Lus`,
   },
@@ -20,8 +20,6 @@ const SEO: SEOProps = {
     title: `${appName} | 500 - Not Found`,
   },
 };
-
-export default SEO;
 
 interface ObjectSEO {
   title: string;

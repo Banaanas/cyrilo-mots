@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { AlertOctagon as AlertIcon } from "react-feather";
 
-import appTheme from "../../../../styles/appTheme";
+import { appTheme } from "../../../../styles/appTheme";
 
 const Paragraph = styled.p`
   display: flex;
@@ -16,7 +16,7 @@ const Paragraph = styled.p`
   border-radius: 2px;
 `;
 
-const LoginFormError = ({ text }: LoginErrorProps) => {
+export const LoginFormError = ({ text }: LoginErrorProps) => {
   if (!text) return null;
   return (
     <Paragraph>
@@ -25,8 +25,6 @@ const LoginFormError = ({ text }: LoginErrorProps) => {
     </Paragraph>
   );
 };
-
-export default LoginFormError;
 
 interface LoginErrorProps {
   text: string | undefined;

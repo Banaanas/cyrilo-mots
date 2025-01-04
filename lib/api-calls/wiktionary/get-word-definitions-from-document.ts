@@ -21,7 +21,6 @@ export const getWordDefinitionsFromDocument = (document: Document) => {
 
   // From NodeList, get array of HTML Definitions
   const wordDefinitions = Array.from(wordDefinitionsNodeList).map(
-    // eslint-disable-next-line @typescript-eslint/no-shadow
     (word) => word.innerHTML,
   );
 

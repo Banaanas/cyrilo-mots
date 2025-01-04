@@ -6,13 +6,12 @@ import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
 import { useState } from "react";
 
-import Layout from "../Components/Layout/Layout";
-import DefaultSEO from "../SEO/next-seo.config";
-import getReactAxe from "../utils/get-react-axe";
+import { Layout } from "../Components/Layout/Layout";
+import { DefaultSEO } from "../SEO/next-seo.config";
+import { getReactAxe } from "../utils/get-react-axe";
 
 // Add React Axe in Development Mode
 if (typeof window !== "undefined" && process.env.NODE_ENV !== "production") {
-  // eslint-disable-next-line no-void
   void getReactAxe();
 }
 

@@ -15,7 +15,7 @@ export const resetWordsList = async (
 
     const { count: allWordsCount } = await getAllWordsCount();
     if (allWordsCount) setMaxRange(allWordsCount);
-  } catch (error) {
+  } catch {
     throw new Error();
   }
 };

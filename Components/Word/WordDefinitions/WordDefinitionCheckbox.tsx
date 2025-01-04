@@ -1,5 +1,3 @@
-/* eslint-disable-@typescript-eslint/no-misused-promises */
-
 import styled from "@emotion/styled";
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { useId, useState } from "react";
@@ -7,8 +5,8 @@ import { Check as CheckIcon } from "react-feather";
 
 import { toggleWord } from "../../../lib/api-calls/supabase/word";
 import { useWordsStore } from "../../../lib/zustand-store/useWordsStore";
-import appTheme from "../../../styles/appTheme";
-import Loader from "../../Common/Loader";
+import { appTheme } from "../../../styles/appTheme";
+import { Loader } from "../../Common/Loader";
 
 const Container = styled.div`
   display: flex;
@@ -44,7 +42,7 @@ const Label = styled.label`
     ${appTheme.fontFamily.alternativeFonts};
 `;
 
-const WordDefinitionCheckbox = ({
+export const WordDefinitionCheckbox = ({
   id,
   isRead,
 }: WordDefinitionCheckboxProps) => {
@@ -61,7 +59,7 @@ const WordDefinitionCheckbox = ({
       await toggleWord(id);
       toggleIsRead(id);
       setIsLoading(false);
-    } catch (error) {
+    } catch {
       throw new Error();
     }
   };
@@ -71,7 +69,6 @@ const WordDefinitionCheckbox = ({
       <StyledCheckbox
         id={checkboxID}
         checked={isRead}
-        // eslint-disable-next-line @typescript-eslint/no-misused-promises
         onCheckedChange={handleCheckboxChange}
       >
         <StyledCheckboxIndicator>
@@ -84,8 +81,6 @@ const WordDefinitionCheckbox = ({
     </Container>
   );
 };
-
-export default WordDefinitionCheckbox;
 
 interface WordDefinitionCheckboxProps {
   id: number;

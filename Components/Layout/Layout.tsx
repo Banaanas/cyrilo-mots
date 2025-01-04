@@ -2,12 +2,12 @@ import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 import { useRouter } from "next/router";
 import { ReactNode } from "react";
 
-import appTheme from "../../styles/appTheme";
-import GlobalStyles from "../../styles/GlobalStyles";
-import Header from "./Header/Header";
+import { appTheme } from "../../styles/appTheme";
+import { GlobalStyles } from "../../styles/GlobalStyles";
+import { Header } from "./Header/Header";
 
 // Persistent Layout
-const Layout = ({ children }: { children: ReactNode }) => {
+export const Layout = ({ children }: { children: ReactNode }) => {
   // Header does NOT render for Login Page
   const router = useRouter();
   const { pathname } = router;
@@ -20,5 +20,3 @@ const Layout = ({ children }: { children: ReactNode }) => {
     </EmotionThemeProvider>
   );
 };
-
-export default Layout;

@@ -1,13 +1,13 @@
 import { css, Global } from "@emotion/react";
 
-import appTheme from "./appTheme";
+import { appTheme } from "./appTheme";
 import { focusStyle } from "./css-composition";
-import colors from "./CSS-variables/colors";
-import elevations from "./CSS-variables/elevations";
-import fontProperties from "./CSS-variables/font-properties";
+import { colors } from "./CSS-variables/colors";
+import { elevations } from "./CSS-variables/elevations";
+import { fontProperties } from "./CSS-variables/font-properties";
 
 // Emotion Global Styles
-const GlobalStyles = () => (
+export const GlobalStyles = () => (
   <Global
     styles={css`
       /* CSS RESET - Next.js authorizes Normalize.css (Global CSS) to be imported ONLY
@@ -194,5 +194,3 @@ const GlobalStyles = () => (
     `}
   />
 );
-
-export default GlobalStyles;

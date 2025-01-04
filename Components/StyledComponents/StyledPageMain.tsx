@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 
-import appTheme from "../../styles/appTheme";
+import { appTheme } from "../../styles/appTheme";
 
 // Framer Motion Div
-const StyledPageMain = styled.main<StyledPageMainProps>`
+export const StyledPageMain = styled.main<StyledPageMainProps>`
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -15,8 +15,6 @@ const StyledPageMain = styled.main<StyledPageMainProps>`
   padding: 16px;
   text-align: justify;
 `;
-
-export default StyledPageMain;
 
 interface StyledPageMainProps {
   justifyContent?:

@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
 
-import appTheme from "../../../styles/appTheme";
-import LoginForm from "./LoginForm/LoginForm";
-import LoginGitHub from "./LoginGithub/LoginGitHub";
-import LoginSeparator from "./LoginSeparator";
-import NoNewSignUpMessage from "./NoNewSignUpMessage";
+import { appTheme } from "../../../styles/appTheme";
+import { LoginForm } from "./LoginForm/LoginForm";
+import { LoginGitHub } from "./LoginGithub/LoginGitHub";
+import { LoginSeparator } from "./LoginSeparator";
+import { NoNewSignUpMessage } from "./NoNewSignUpMessage";
 
 const Container = styled.div`
   display: flex;
@@ -49,7 +49,7 @@ const TitleH1 = styled.h1`
   text-align: center;
 `;
 
-const LoginSection = () => {
+export const LoginSection = () => {
   return (
     <Container>
       <TitleAndMessageContainer>
@@ -64,5 +64,3 @@ const LoginSection = () => {
     </Container>
   );
 };
-
-export default LoginSection;

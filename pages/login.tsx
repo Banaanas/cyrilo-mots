@@ -2,10 +2,10 @@ import { createPagesServerClient } from "@supabase/auth-helpers-nextjs";
 import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
 
-import LoginSection from "../Components/_Pages/LoginPage/LoginSection";
-import StyledPageMain from "../Components/StyledComponents/StyledPageMain";
+import { LoginSection } from "../Components/_Pages/LoginPage/LoginSection";
+import { StyledPageMain } from "../Components/StyledComponents/StyledPageMain";
 import { navLinks } from "../data/navlinks";
-import SEO from "../SEO/seo-data";
+import { SEO } from "../SEO/seo-data";
 
 const LoginPage = () => {
   return (
@@ -25,7 +25,6 @@ export default LoginPage;
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
 ) => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const supabase = createPagesServerClient(context);
   const {
     data: { session },

@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import * as SeparatorPrimitive from "@radix-ui/react-separator";
 import NextLink from "next/link";
 
-import appTheme from "../../../styles/appTheme";
+import { appTheme } from "../../../styles/appTheme";
 import { headerLinkButtonStyle } from "../../../styles/css-composition";
 
 export const StyledHeader = styled.header`

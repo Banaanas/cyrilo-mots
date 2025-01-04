@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import * as LabelPrimitive from "@radix-ui/react-label";
 
-import appTheme from "../../../../styles/appTheme";
+import { appTheme } from "../../../../styles/appTheme";
 
 export const FormContainer = styled.div`
   display: flex;
