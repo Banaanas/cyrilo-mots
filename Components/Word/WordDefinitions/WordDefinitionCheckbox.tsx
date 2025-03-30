@@ -38,8 +38,8 @@ const StyledCheckboxIndicator = styled(Checkbox.Indicator)`
 `;
 
 const Label = styled.label`
-  font-family: ${appTheme.fontFamily.montserrat},
-    ${appTheme.fontFamily.alternativeFonts};
+  font-family:
+    ${appTheme.fontFamily.montserrat}, ${appTheme.fontFamily.alternativeFonts};
 `;
 
 export const WordDefinitionCheckbox = ({

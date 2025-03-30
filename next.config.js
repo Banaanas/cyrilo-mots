@@ -8,7 +8,6 @@ const nextConfig = {
   compiler: {
     emotion: true,
   },
-  swcMinify: true,
 
   async headers() {
     return [

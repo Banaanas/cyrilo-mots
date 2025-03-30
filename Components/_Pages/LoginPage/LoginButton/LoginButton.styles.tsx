@@ -13,8 +13,8 @@ export const LoginButton = styled.button`
   padding: 8px 0;
   color: ${appTheme.colors.white};
   font-weight: ${appTheme.fontWeight.bold};
-  font-family: ${appTheme.fontFamily.montserrat},
-    ${appTheme.fontFamily.alternativeFonts};
+  font-family:
+    ${appTheme.fontFamily.montserrat}, ${appTheme.fontFamily.alternativeFonts};
   cursor: pointer;
   isolation: isolate;
 

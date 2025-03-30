@@ -35,8 +35,8 @@ export const SubHeader = styled.div`
 
 export const Heading = styled.h1`
   color: ${appTheme.colors.white};
-  font-family: ${appTheme.fontFamily.montserrat},
-    ${appTheme.fontFamily.alternativeFonts};
+  font-family:
+    ${appTheme.fontFamily.montserrat}, ${appTheme.fontFamily.alternativeFonts};
   font-size: ${appTheme.fontSize.xl};
   font-weight: ${appTheme.fontWeight.bold};
 
