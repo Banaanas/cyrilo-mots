@@ -33,7 +33,8 @@ export const GlobalStyles = () => (
         min-width: ${appTheme.globalMinWidth};
         height: 100%;
         color: ${appTheme.colors.textDefault};
-        font-family: ${appTheme.fontFamily.openSans},
+        font-family:
+          ${appTheme.fontFamily.openSans},
           ${appTheme.fontFamily.alternativeFonts};
         background-color: ${appTheme.colors.tertiary["100"]};
       }
@@ -83,7 +84,8 @@ export const GlobalStyles = () => (
       h6,
       strong {
         font-weight: ${appTheme.fontWeight.bold};
-        font-family: ${appTheme.fontFamily.montserrat},
+        font-family:
+          ${appTheme.fontFamily.montserrat},
           ${appTheme.fontFamily.alternativeFonts};
       }
 

@@ -24,7 +24,7 @@ export const fontProperties = css`
   /* Font Family */
   --font-family-1: "Montserrat";
   --font-family-2: "Open Sans";
-  --alternative-fonts: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
+  --alternative-fonts:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 `;

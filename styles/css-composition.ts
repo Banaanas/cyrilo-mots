@@ -37,8 +37,8 @@ export const headerLinkButtonStyle = ({
   background: ${color === "light"
     ? appTheme.colors.tertiary["100"]
     : appTheme.colors.tertiary["800"]};
-  font-family: ${appTheme.fontFamily.montserrat},
-    ${appTheme.fontFamily.alternativeFonts};
+  font-family:
+    ${appTheme.fontFamily.montserrat}, ${appTheme.fontFamily.alternativeFonts};
   font-size: ${appTheme.fontSize.sm};
   font-weight: ${appTheme.fontWeight.bold};
   text-decoration: none;
