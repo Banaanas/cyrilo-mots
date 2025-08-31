@@ -51,7 +51,7 @@ const config: PlaywrightTestConfig = {
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "Microsoft Edge",
+      name: "chromium",
       use: {
         ...devices["Desktop Chrome"],
       },
